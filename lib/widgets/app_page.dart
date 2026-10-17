@@ -234,30 +234,57 @@ class CircleIconButton extends StatelessWidget {
   }
 }
 
-/// Row of pill segments where reached steps (completed + current) are long
-/// accent bars and upcoming steps are short neutral dots.
+/// Visual treatment of a [StepIndicator].
+enum StepIndicatorStyle {
+  /// Reached steps are long accent bars, upcoming steps are short neutral
+  /// dots (fixed widths, row shrink-wraps its content).
+  dots,
+
+  /// Every step is an equal-width bar stretched to fill the row.
+  bars,
+}
+
+/// Row of pill segments showing progress through a multi-step flow.
 class StepIndicator extends StatelessWidget {
-  const StepIndicator({super.key, required this.current, required this.total});
+  const StepIndicator({
+    super.key,
+    required this.current,
+    required this.total,
+    this.style = StepIndicatorStyle.dots,
+  });
 
   /// Zero-based index of the active step.
   final int current;
   final int total;
+  final StepIndicatorStyle style;
 
   @override
   Widget build(BuildContext context) {
+    final bars = style == StepIndicatorStyle.bars;
     return Row(
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: bars ? MainAxisSize.max : MainAxisSize.min,
       children: [
         for (var i = 0; i < total; i++) ...[
-          if (i > 0) const SizedBox(width: 6),
-          Container(
-            width: i <= current ? 32 : 8,
-            height: 6,
-            decoration: BoxDecoration(
-              color: i <= current ? AppColors.accent : AppColors.border,
-              borderRadius: BorderRadius.circular(3),
+          if (i > 0) SizedBox(width: bars ? AppSpacing.xs : 6),
+          if (bars)
+            Expanded(
+              child: Container(
+                height: 4,
+                decoration: BoxDecoration(
+                  color: i <= current ? AppColors.accent : AppColors.border,
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+            )
+          else
+            Container(
+              width: i <= current ? 32 : 8,
+              height: 6,
+              decoration: BoxDecoration(
+                color: i <= current ? AppColors.accent : AppColors.border,
+                borderRadius: BorderRadius.circular(3),
+              ),
             ),
-          ),
         ],
       ],
     );

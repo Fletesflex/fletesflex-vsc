@@ -15,8 +15,8 @@ class HomeScreen extends StatelessWidget {
     Navigator.of(context).pushNamed(AppRoutes.formularioPaso1);
   }
 
-  void _handleFleteTap() {
-    // TODO: navigate to the "Flete" request flow.
+  void _handleFleteTap(BuildContext context) {
+    Navigator.of(context).pushNamed(AppRoutes.fletePaso1);
   }
 
   void _handleMensajeriaTap() {
@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
                   title: 'Flete',
                   description: 'Solo vehículo. Ideal para llevar muebles '
                       'grandes sueltos o compras de corralón.',
-                  onTap: _handleFleteTap,
+                  onTap: () => _handleFleteTap(context),
                 ),
                 const SizedBox(height: AppSpacing.md),
                 CategoryCard(

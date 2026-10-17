@@ -15,6 +15,7 @@ class AppCard extends StatelessWidget {
     this.borderWidth = 1.5,
     this.color = AppColors.surface,
     this.shadow = true,
+    this.elevatedShadow = false,
     this.onTap,
   });
 
@@ -25,6 +26,10 @@ class AppCard extends StatelessWidget {
   final double borderWidth;
   final Color color;
   final bool shadow;
+
+  /// Uses [AppShadows.elevated] instead of [AppShadows.soft]. Ignored when
+  /// [shadow] is false.
+  final bool elevatedShadow;
   final VoidCallback? onTap;
 
   @override
@@ -36,7 +41,9 @@ class AppCard extends StatelessWidget {
         color: color,
         border: Border.all(color: borderColor, width: borderWidth),
         borderRadius: BorderRadius.circular(radius),
-        boxShadow: shadow ? AppShadows.soft : null,
+        boxShadow: shadow
+            ? (elevatedShadow ? AppShadows.elevated : AppShadows.soft)
+            : null,
       ),
       child: child,
     );
