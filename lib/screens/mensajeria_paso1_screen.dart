@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -34,8 +35,9 @@ class _MensajeriaPaso1ScreenState extends State<MensajeriaPaso1Screen> {
     super.dispose();
   }
 
-  void _handleNext() {
+  void _handleNext(BuildContext context) {
     // TODO: validate the addresses and timing before continuing.
+    Navigator.of(context).pushNamed(AppRoutes.mensajeriaPaso2);
   }
 
   @override
@@ -136,8 +138,7 @@ class _MensajeriaPaso1ScreenState extends State<MensajeriaPaso1Screen> {
                     iconAsset: 'assets/icons/bolt.svg',
                     label: 'Lo antes posible',
                     selected: _timing == _DeliveryTiming.now,
-                    onTap: () =>
-                        setState(() => _timing = _DeliveryTiming.now),
+                    onTap: () => setState(() => _timing = _DeliveryTiming.now),
                   ),
                 ),
                 const SizedBox(width: AppSpacing.sm),
@@ -155,7 +156,7 @@ class _MensajeriaPaso1ScreenState extends State<MensajeriaPaso1Screen> {
           ],
         ),
         const SizedBox(height: AppSpacing.sectionGap),
-        PillButton(label: 'Siguiente', onPressed: _handleNext),
+        PillButton(label: 'Siguiente', onPressed: () => _handleNext(context)),
       ],
     );
   }

@@ -18,6 +18,7 @@ import 'screens/home_screen.dart';
 import 'screens/listado_ofertas_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/mensajeria_paso1_screen.dart';
+import 'screens/mensajeria_paso2_screen.dart';
 import 'screens/mis_ofertas_screen.dart';
 import 'screens/oferta_enviada_screen.dart';
 import 'screens/pago_resultado_screens.dart';
@@ -48,6 +49,7 @@ abstract final class AppRoutes {
 
   // Requester: Mensajería request flow.
   static const String mensajeriaPaso1 = '/mensajeria/paso-1';
+  static const String mensajeriaPaso2 = '/mensajeria/paso-2';
 
   // Requester: offers.
   static const String listadoOfertas = '/ofertas';
@@ -61,8 +63,10 @@ abstract final class AppRoutes {
   static const String pagoRechazado = '/pago/rechazado';
   static const String comprobantePago = '/pago/comprobante';
   static const String pagoTransferencia = '/pago/transferencia';
-  static const String verificandoTransferencia = '/pago/transferencia/verificando';
-  static const String transferenciaConfirmada = '/pago/transferencia/confirmada';
+  static const String verificandoTransferencia =
+      '/pago/transferencia/verificando';
+  static const String transferenciaConfirmada =
+      '/pago/transferencia/confirmada';
 
   // Chat.
   static const String chat = '/chat';
@@ -95,58 +99,56 @@ abstract final class AppRoutes {
 
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
-        login: (_) => const LoginScreen(),
-        home: (_) => const HomeScreen(),
-        fletePaso1: (_) => const FletePaso1Screen(),
-        fletePaso2: (_) => const FletePaso2Screen(),
-        fleteConfirmacion: (_) => const FleteConfirmacionScreen(),
-        fletePublicado: (_) => const FletePublicadoScreen(),
-        mensajeriaPaso1: (_) => const MensajeriaPaso1Screen(),
-        formularioPaso1: (_) => const FormularioPaso1Screen(),
-        formularioPaso2: (_) => const FormularioPaso2Screen(),
-        resumenPrecio: (_) => const ResumenPrecioScreen(),
-        publicacionActiva: (_) => const PublicacionActivaScreen(),
-        listadoOfertas: (_) => const ListadoOfertasScreen(),
-        perfilTransportista: (_) => const PerfilTransportistaScreen(),
-        exitoConfirmacion: (_) => const ExitoConfirmacionScreen(),
-        resumenPago: (_) => const ResumenPagoScreen(),
-        cargaPago: (_) => const CargaPagoScreen(),
-        pagoConfirmado: (_) => const PagoConfirmadoScreen(),
-        pagoRechazado: (_) => const PagoRechazadoScreen(),
-        comprobantePago: (_) => const ComprobantePagoScreen(),
-        pagoTransferencia: (_) => const PagoTransferenciaScreen(),
-        verificandoTransferencia: (_) =>
-            const VerificandoTransferenciaScreen(),
-        transferenciaConfirmada: (_) =>
-            const PagoConfirmadoScreen(byTransfer: true),
-        chat: (_) => const ChatScreen(),
-        chatArchivado: (_) => const ChatScreen(archived: true),
-        reporteProblema: (_) => const ChatScreen(openReportOnStart: true),
-        avisoCalificacionSolicitante: (_) => const RatingPromptHost(
-              target: RatingTarget.carrier,
-              child: HomeScreen(),
-            ),
-        avisoCalificacionTransportista: (_) => const RatingPromptHost(
-              target: RatingTarget.requester,
-              child: TransportistaSolicitudesScreen(),
-            ),
-        bloqueoCalificacion: (_) => const BloqueoCalificacionScreen(),
-        calificacionSolicitante: (_) =>
-            const CalificarScreen(target: RatingTarget.carrier),
-        calificacionTransportista: (_) =>
-            const CalificarScreen(target: RatingTarget.requester),
-        confirmacionCalificacion: (_) =>
-            const ConfirmacionCalificacionScreen(),
-        perfilCalificaciones: (_) => const PerfilCalificacionesScreen(),
-        historialSolicitante: (_) =>
-            const HistorialServiciosScreen(target: RatingTarget.carrier),
-        historialTransportista: (_) =>
-            const HistorialServiciosScreen(target: RatingTarget.requester),
-        transportistaSolicitudes: (_) =>
-            const TransportistaSolicitudesScreen(),
-        detalleSolicitud: (_) => const DetalleSolicitudScreen(),
-        confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),
-        confirmacionOfertaEnviada: (_) => const OfertaEnviadaScreen(),
-        misOfertas: (_) => const MisOfertasScreen(),
-      };
+    login: (_) => const LoginScreen(),
+    home: (_) => const HomeScreen(),
+    fletePaso1: (_) => const FletePaso1Screen(),
+    fletePaso2: (_) => const FletePaso2Screen(),
+    fleteConfirmacion: (_) => const FleteConfirmacionScreen(),
+    fletePublicado: (_) => const FletePublicadoScreen(),
+    mensajeriaPaso1: (_) => const MensajeriaPaso1Screen(),
+    mensajeriaPaso2: (_) => const MensajeriaPaso2Screen(),
+    formularioPaso1: (_) => const FormularioPaso1Screen(),
+    formularioPaso2: (_) => const FormularioPaso2Screen(),
+    resumenPrecio: (_) => const ResumenPrecioScreen(),
+    publicacionActiva: (_) => const PublicacionActivaScreen(),
+    listadoOfertas: (_) => const ListadoOfertasScreen(),
+    perfilTransportista: (_) => const PerfilTransportistaScreen(),
+    exitoConfirmacion: (_) => const ExitoConfirmacionScreen(),
+    resumenPago: (_) => const ResumenPagoScreen(),
+    cargaPago: (_) => const CargaPagoScreen(),
+    pagoConfirmado: (_) => const PagoConfirmadoScreen(),
+    pagoRechazado: (_) => const PagoRechazadoScreen(),
+    comprobantePago: (_) => const ComprobantePagoScreen(),
+    pagoTransferencia: (_) => const PagoTransferenciaScreen(),
+    verificandoTransferencia: (_) => const VerificandoTransferenciaScreen(),
+    transferenciaConfirmada: (_) =>
+        const PagoConfirmadoScreen(byTransfer: true),
+    chat: (_) => const ChatScreen(),
+    chatArchivado: (_) => const ChatScreen(archived: true),
+    reporteProblema: (_) => const ChatScreen(openReportOnStart: true),
+    avisoCalificacionSolicitante: (_) => const RatingPromptHost(
+      target: RatingTarget.carrier,
+      child: HomeScreen(),
+    ),
+    avisoCalificacionTransportista: (_) => const RatingPromptHost(
+      target: RatingTarget.requester,
+      child: TransportistaSolicitudesScreen(),
+    ),
+    bloqueoCalificacion: (_) => const BloqueoCalificacionScreen(),
+    calificacionSolicitante: (_) =>
+        const CalificarScreen(target: RatingTarget.carrier),
+    calificacionTransportista: (_) =>
+        const CalificarScreen(target: RatingTarget.requester),
+    confirmacionCalificacion: (_) => const ConfirmacionCalificacionScreen(),
+    perfilCalificaciones: (_) => const PerfilCalificacionesScreen(),
+    historialSolicitante: (_) =>
+        const HistorialServiciosScreen(target: RatingTarget.carrier),
+    historialTransportista: (_) =>
+        const HistorialServiciosScreen(target: RatingTarget.requester),
+    transportistaSolicitudes: (_) => const TransportistaSolicitudesScreen(),
+    detalleSolicitud: (_) => const DetalleSolicitudScreen(),
+    confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),
+    confirmacionOfertaEnviada: (_) => const OfertaEnviadaScreen(),
+    misOfertas: (_) => const MisOfertasScreen(),
+  };
 }

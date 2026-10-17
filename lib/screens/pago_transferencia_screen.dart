@@ -30,9 +30,8 @@ class _PagoTransferenciaScreenState extends State<PagoTransferenciaScreen> {
 
   void _copy(String value) {
     Clipboard.setData(ClipboardData(text: value));
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Copiado: $value')),
-    );
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('Copiado: $value')));
   }
 
   void _pickReceipt() {
@@ -42,7 +41,8 @@ class _PagoTransferenciaScreenState extends State<PagoTransferenciaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final offer = ModalRoute.of(context)?.settings.arguments as Offer? ??
+    final offer =
+        ModalRoute.of(context)?.settings.arguments as Offer? ??
         SampleOffers.andres;
 
     return AppPage(
@@ -78,9 +78,9 @@ class _PagoTransferenciaScreenState extends State<PagoTransferenciaScreen> {
         onPressed: _receipt == null
             ? null
             : () => Navigator.of(context).pushReplacementNamed(
-                  AppRoutes.verificandoTransferencia,
-                  arguments: offer,
-                ),
+                AppRoutes.verificandoTransferencia,
+                arguments: offer,
+              ),
       ),
       children: [
         Text(
@@ -248,107 +248,4 @@ class _KeyValue extends StatelessWidget {
       ],
     );
   }
-}
-
-/// Dashed-border tap target for attaching a photo or file.
-class UploadDropZone extends StatelessWidget {
-  const UploadDropZone({
-    super.key,
-    required this.title,
-    required this.subtitle,
-    required this.onTap,
-    this.iconAsset = 'assets/icons/camera_md.svg',
-  });
-
-  final String title;
-  final String subtitle;
-  final VoidCallback onTap;
-  final String iconAsset;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(AppRadius.xl),
-      child: CustomPaint(
-        painter: const _DashedBorderPainter(
-          color: AppColors.dashedBorder,
-          radius: AppRadius.xl,
-        ),
-        child: Container(
-          width: double.infinity,
-          padding: const EdgeInsets.symmetric(
-            horizontal: AppSpacing.md,
-            vertical: 28,
-          ),
-          child: Column(
-            children: [
-              Container(
-                width: 48,
-                height: 48,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  color: AppColors.iconSurface,
-                  shape: BoxShape.circle,
-                ),
-                child: SvgPicture.asset(iconAsset, width: 22, height: 22),
-              ),
-              const SizedBox(height: AppSpacing.sm),
-              Text(
-                title,
-                style: AppTypography.userName,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: AppSpacing.xxs),
-              Text(
-                subtitle,
-                style: AppTypography.routeText.copyWith(
-                  color: AppColors.textMuted,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _DashedBorderPainter extends CustomPainter {
-  const _DashedBorderPainter({required this.color, required this.radius});
-
-  final Color color;
-  final double radius;
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..strokeWidth = 1.5
-      ..style = PaintingStyle.stroke;
-    final path = Path()
-      ..addRRect(
-        RRect.fromRectAndRadius(
-          Offset.zero & size,
-          Radius.circular(radius),
-        ).deflate(0.75),
-      );
-    const dash = 6.0;
-    const gap = 4.0;
-    for (final metric in path.computeMetrics()) {
-      var distance = 0.0;
-      while (distance < metric.length) {
-        canvas.drawPath(
-          metric.extractPath(distance, distance + dash),
-          paint,
-        );
-        distance += dash + gap;
-      }
-    }
-  }
-
-  @override
-  bool shouldRepaint(_DashedBorderPainter oldDelegate) =>
-      oldDelegate.color != color || oldDelegate.radius != radius;
 }

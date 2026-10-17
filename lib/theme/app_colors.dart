@@ -98,4 +98,7 @@ abstract final class AppColors {
 
   /// Soft red-orange fill for warning tags ("Ascensor: No (Escaleras)").
   static const Color warningSurface = Color(0xFFFFF0ED);
+
+  /// Muted brownish-gray for unselected icons (package-type picker).
+  static const Color iconMuted = Color(0xFF918B86);
 }
