@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -52,6 +53,7 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
 
   void _handleNext() {
     // TODO: validate the addresses and schedule before continuing.
+    Navigator.of(context).pushNamed(AppRoutes.fletePaso2);
   }
 
   @override
