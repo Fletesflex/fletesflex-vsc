@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -34,6 +35,7 @@ class _MensajeriaPaso2ScreenState extends State<MensajeriaPaso2Screen> {
 
   void _handleNext() {
     // TODO: validate the package details before continuing.
+    Navigator.of(context).pushNamed(AppRoutes.mensajeriaConfirmacion);
   }
 
   @override
