@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -46,8 +47,9 @@ class _FletePaso2ScreenState extends State<FletePaso2Screen> {
     // TODO: open the "add object" flow.
   }
 
-  void _handleNext() {
+  void _handleNext(BuildContext context) {
     // TODO: validate the cargo list before continuing.
+    Navigator.of(context).pushNamed(AppRoutes.fleteConfirmacion);
   }
 
   @override
@@ -92,7 +94,10 @@ class _FletePaso2ScreenState extends State<FletePaso2Screen> {
           textAlign: TextAlign.center,
         ),
         const SizedBox(height: AppSpacing.sectionGap),
-        PillButton(label: 'Siguiente', onPressed: _handleNext),
+        PillButton(
+          label: 'Siguiente',
+          onPressed: () => _handleNext(context),
+        ),
       ],
     );
   }

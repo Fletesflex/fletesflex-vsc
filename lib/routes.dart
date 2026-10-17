@@ -8,6 +8,7 @@ import 'screens/comprobante_pago_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
 import 'screens/exito_confirmacion_screen.dart';
+import 'screens/flete_confirmacion_screen.dart';
 import 'screens/flete_paso1_screen.dart';
 import 'screens/flete_paso2_screen.dart';
 import 'screens/formulario_paso1_screen.dart';
@@ -40,6 +41,7 @@ abstract final class AppRoutes {
   // Requester: Flete request flow.
   static const String fletePaso1 = '/flete/paso-1';
   static const String fletePaso2 = '/flete/paso-2';
+  static const String fleteConfirmacion = '/flete/confirmacion';
 
   // Requester: offers.
   static const String listadoOfertas = '/ofertas';
@@ -91,6 +93,7 @@ abstract final class AppRoutes {
         home: (_) => const HomeScreen(),
         fletePaso1: (_) => const FletePaso1Screen(),
         fletePaso2: (_) => const FletePaso2Screen(),
+        fleteConfirmacion: (_) => const FleteConfirmacionScreen(),
         formularioPaso1: (_) => const FormularioPaso1Screen(),
         formularioPaso2: (_) => const FormularioPaso2Screen(),
         resumenPrecio: (_) => const ResumenPrecioScreen(),

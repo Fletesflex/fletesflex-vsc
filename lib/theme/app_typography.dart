@@ -408,4 +408,58 @@ abstract final class AppTypography {
         fontWeight: FontWeight.bold,
         color: AppColors.textPrimary,
       );
+
+  /// Rubik Bold 16 — card heading on the flete confirmation screen
+  /// ("Recorrido y horario", "3 objetos cargados").
+  static TextStyle get cardHeading => GoogleFonts.rubik(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+        color: AppColors.textPrimary,
+      );
+
+  /// Manrope Medium 15 — route/date value under a muted caption
+  /// ("Av. Córdoba 1234, CABA").
+  static TextStyle get addressValue => GoogleFonts.manrope(
+        fontSize: 15,
+        fontWeight: FontWeight.w500,
+        color: AppColors.textPrimary,
+      );
+
+  /// Manrope Regular 13 — muted caption under a card heading
+  /// ("Heladera, Sillón y caja de embalaje").
+  static TextStyle get cardCaption => GoogleFonts.manrope(
+        fontSize: 13,
+        fontWeight: FontWeight.normal,
+        color: AppColors.textMuted,
+      );
+
+  /// Manrope SemiBold 12 uppercase — label above the assigned-vehicle name
+  /// ("Vehículo asignado para tu flete").
+  static TextStyle get vehicleLabel => GoogleFonts.manrope(
+        fontSize: 12,
+        fontWeight: FontWeight.w600,
+        color: AppColors.textPrimary,
+      );
+
+  /// Rubik Bold 18 — assigned vehicle name ("Camioneta").
+  static TextStyle get vehicleTitle => GoogleFonts.rubik(
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        color: AppColors.textPrimary,
+      );
+
+  /// Manrope SemiBold 14 — muted caption above a hero price ("Precio estimado").
+  static TextStyle get priceEstimateLabel => GoogleFonts.manrope(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+        color: AppColors.textMuted,
+      );
+
+  /// Rubik ExtraBold 36 — hero price on the flete confirmation screen
+  /// ("$130.000").
+  static TextStyle get priceHero => GoogleFonts.rubik(
+        fontSize: 36,
+        fontWeight: FontWeight.w800,
+        color: AppColors.textPrimary,
+      );
 }
