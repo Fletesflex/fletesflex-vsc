@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../utils/format.dart';
 import '../widgets/widgets.dart';
@@ -13,6 +14,7 @@ class MensajeriaConfirmacionScreen extends StatelessWidget {
 
   void _handleConfirm(BuildContext context) {
     // TODO: submit the mensajería request before navigating.
+    Navigator.of(context).pushNamed(AppRoutes.mensajeriaPublicada);
   }
 
   void _handleEdit(BuildContext context) {
