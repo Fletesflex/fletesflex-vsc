@@ -19,8 +19,8 @@ class HomeScreen extends StatelessWidget {
     Navigator.of(context).pushNamed(AppRoutes.fletePaso1);
   }
 
-  void _handleMensajeriaTap() {
-    // TODO: navigate to the "Mensajería" request flow.
+  void _handleMensajeriaTap(BuildContext context) {
+    Navigator.of(context).pushNamed(AppRoutes.mensajeriaPaso1);
   }
 
   void _handleNotificationsTap() {
@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                   title: 'Mensajería',
                   description: 'Para objetos chicos, llaves, papeles. '
                       'Tarifas súper económicas calculadas por km.',
-                  onTap: _handleMensajeriaTap,
+                  onTap: () => _handleMensajeriaTap(context),
                 ),
                 const SizedBox(height: AppSpacing.lg),
               ],

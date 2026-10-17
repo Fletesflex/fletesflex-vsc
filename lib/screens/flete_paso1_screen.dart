@@ -70,11 +70,15 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
         const SizedBox(height: AppSpacing.xs),
         Text('Paso 1: Direcciones', style: AppTypography.textAction),
         const SizedBox(height: AppSpacing.sectionGap),
-        _SectionCard(
-          iconAsset: 'assets/icons/icon_bg_pin.svg',
+        FormSectionCard(
+          icon: SvgPicture.asset(
+            'assets/icons/icon_bg_pin.svg',
+            width: 28,
+            height: 28,
+          ),
           title: 'Origen',
           children: [
-            _LabeledField(
+            LabeledField(
               label: 'DIRECCIÓN DE RETIRO',
               child: FormTextField(
                 controller: _originAddress,
@@ -87,7 +91,7 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
             Row(
               children: [
                 Expanded(
-                  child: _LabeledField(
+                  child: LabeledField(
                     label: 'TIPO DE DOMICILIO',
                     child: FormTextField(
                       hintText: 'Casa / Depto',
@@ -100,7 +104,7 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
                 ),
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
-                  child: _LabeledField(
+                  child: LabeledField(
                     label: 'PISO / DEPTO',
                     child: FormTextField(
                       controller: _originFloor,
@@ -114,11 +118,15 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
           ],
         ),
         const SizedBox(height: AppSpacing.sectionGap),
-        _SectionCard(
-          iconAsset: 'assets/icons/icon_bg_pin.svg',
+        FormSectionCard(
+          icon: SvgPicture.asset(
+            'assets/icons/icon_bg_pin.svg',
+            width: 28,
+            height: 28,
+          ),
           title: 'Destino',
           children: [
-            _LabeledField(
+            LabeledField(
               label: 'DIRECCIÓN DE ENTREGA',
               child: FormTextField(
                 controller: _destinationAddress,
@@ -131,7 +139,7 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
             Row(
               children: [
                 Expanded(
-                  child: _LabeledField(
+                  child: LabeledField(
                     label: 'TIPO DE DOMICILIO',
                     child: FormTextField(
                       hintText: 'Casa / Depto',
@@ -144,7 +152,7 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
                 ),
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
-                  child: _LabeledField(
+                  child: LabeledField(
                     label: 'PISO / DEPTO',
                     child: FormTextField(
                       controller: _destinationFloor,
@@ -160,14 +168,18 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
         const SizedBox(height: AppSpacing.sectionGap),
         _AddStopRow(onTap: _handleAddStop),
         const SizedBox(height: AppSpacing.sectionGap),
-        _SectionCard(
-          iconAsset: 'assets/icons/icon_bg_calendar.svg',
+        FormSectionCard(
+          icon: SvgPicture.asset(
+            'assets/icons/icon_bg_calendar.svg',
+            width: 28,
+            height: 28,
+          ),
           title: 'Fecha y horario',
           children: [
             Row(
               children: [
                 Expanded(
-                  child: _LabeledField(
+                  child: LabeledField(
                     label: 'FECHA',
                     child: FormTextField(
                       hintText: 'Elegí la fecha',
@@ -180,7 +192,7 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
                 ),
                 const SizedBox(width: AppSpacing.sm),
                 Expanded(
-                  child: _LabeledField(
+                  child: LabeledField(
                     label: 'HORARIO ESTIMADO',
                     child: FormTextField(
                       hintText: 'Horario estimado',
@@ -197,69 +209,6 @@ class _FletePaso1ScreenState extends State<FletePaso1Screen> {
         ),
         const SizedBox(height: AppSpacing.sectionGap),
         PillButton(label: 'Siguiente', onPressed: _handleNext),
-      ],
-    );
-  }
-}
-
-/// White rounded card with an icon + title header, a divider, and a
-/// vertical list of fields below (origin/destination/schedule sections).
-class _SectionCard extends StatelessWidget {
-  const _SectionCard({
-    required this.iconAsset,
-    required this.title,
-    required this.children,
-  });
-
-  final String iconAsset;
-  final String title;
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    return AppCard(
-      borderWidth: 0,
-      borderColor: Colors.transparent,
-      radius: AppRadius.xl,
-      elevatedShadow: true,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(
-            children: [
-              SvgPicture.asset(iconAsset, width: 28, height: 28),
-              const SizedBox(width: AppSpacing.xs),
-              Text(title, style: AppTypography.groupTitle),
-            ],
-          ),
-          const SizedBox(height: AppSpacing.md),
-          const AppDivider(thin: true),
-          const SizedBox(height: AppSpacing.md),
-          for (var i = 0; i < children.length; i++) ...[
-            if (i > 0) const SizedBox(height: AppSpacing.md),
-            children[i],
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-/// Uppercase caption above a [FormTextField] (e.g. "TIPO DE DOMICILIO").
-class _LabeledField extends StatelessWidget {
-  const _LabeledField({required this.label, required this.child});
-
-  final String label;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(label, style: AppTypography.caps),
-        const SizedBox(height: AppSpacing.xxs),
-        child,
       ],
     );
   }

@@ -75,6 +75,74 @@ class AppDivider extends StatelessWidget {
   }
 }
 
+/// White rounded card with a leading icon + bold title header, a divider,
+/// and a vertical list of fields below. Used by request-form steps for the
+/// address/schedule sections (e.g. "Origen", "Dirección de retiro",
+/// "Fecha y horario").
+class FormSectionCard extends StatelessWidget {
+  const FormSectionCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.children,
+  });
+
+  /// 28x28 leading icon (a flat SVG, or a composed icon-in-circle).
+  final Widget icon;
+  final String title;
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    return AppCard(
+      borderWidth: 0,
+      borderColor: Colors.transparent,
+      radius: AppRadius.xl,
+      elevatedShadow: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            children: [
+              icon,
+              const SizedBox(width: AppSpacing.xs),
+              Text(title, style: AppTypography.groupTitle),
+            ],
+          ),
+          const SizedBox(height: AppSpacing.md),
+          const AppDivider(thin: true),
+          const SizedBox(height: AppSpacing.md),
+          for (var i = 0; i < children.length; i++) ...[
+            if (i > 0) const SizedBox(height: AppSpacing.md),
+            children[i],
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Uppercase caption above a form field (e.g. "DIRECCIÓN", "TIPO DE
+/// DOMICILIO").
+class LabeledField extends StatelessWidget {
+  const LabeledField({super.key, required this.label, required this.child});
+
+  final String label;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: AppTypography.caps),
+        const SizedBox(height: AppSpacing.xxs),
+        child,
+      ],
+    );
+  }
+}
+
 /// Icon in a 38px soft-yellow circle + uppercase caption + value
 /// ("SERVICIO / Mudanza chica · Palermo → Belgrano").
 class InfoRow extends StatelessWidget {
