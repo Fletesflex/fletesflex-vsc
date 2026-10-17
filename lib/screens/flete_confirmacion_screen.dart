@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../utils/format.dart';
 import '../widgets/widgets.dart';
@@ -11,8 +12,9 @@ import '../widgets/widgets.dart';
 class FleteConfirmacionScreen extends StatelessWidget {
   const FleteConfirmacionScreen({super.key});
 
-  void _handleConfirm() {
-    // TODO: submit the flete request and navigate to the success screen.
+  void _handleConfirm(BuildContext context) {
+    // TODO: submit the flete request before navigating.
+    Navigator.of(context).pushNamed(AppRoutes.fletePublicado);
   }
 
   void _handleEdit(BuildContext context) {
@@ -50,7 +52,7 @@ class FleteConfirmacionScreen extends StatelessWidget {
         const SizedBox(height: AppSpacing.sectionGap),
         PillButton(
           label: 'Confirmar y publicar flete',
-          onPressed: _handleConfirm,
+          onPressed: () => _handleConfirm(context),
         ),
         const SizedBox(height: AppSpacing.sm),
         Center(
