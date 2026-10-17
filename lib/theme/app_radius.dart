@@ -15,4 +15,7 @@ abstract final class AppRadius {
 
   /// 24 — the app logo mark.
   static const double lg = 24;
+
+  /// Fully rounded pill (option chips, home indicator).
+  static const double pill = 100;
 }

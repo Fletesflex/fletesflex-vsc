@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -10,8 +11,8 @@ import '../widgets/widgets.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void _handleMudanzaTap() {
-    // TODO: navigate to the "Mudanza" request flow.
+  void _handleMudanzaTap(BuildContext context) {
+    Navigator.of(context).pushNamed(AppRoutes.formularioPaso1);
   }
 
   void _handleFleteTap() {
@@ -49,7 +50,7 @@ class HomeScreen extends StatelessWidget {
                       'peones/ayudantes incluidos para embalar y cargar.',
                   badgeLabel: 'Recomendado',
                   selected: true,
-                  onTap: _handleMudanzaTap,
+                  onTap: () => _handleMudanzaTap(context),
                 ),
                 const SizedBox(height: AppSpacing.md),
                 CategoryCard(

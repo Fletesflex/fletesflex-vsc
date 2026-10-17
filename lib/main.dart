@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'routes.dart';
-import 'screens/home_screen.dart';
-import 'screens/login_screen.dart';
 import 'theme/theme.dart';
 
 void main() {
@@ -19,10 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       initialRoute: AppRoutes.login,
-      routes: {
-        AppRoutes.login: (context) => const LoginScreen(),
-        AppRoutes.home: (context) => const HomeScreen(),
-      },
+      routes: AppRoutes.table,
     );
   }
 }

@@ -33,4 +33,69 @@ abstract final class AppColors {
 
   /// Solid soft-yellow surface behind category icons on the Home screen.
   static const Color iconSurface = Color(0xFFFFF4CC);
+
+  /// Deep amber used for the destination ("B") marker and its map-pin icon
+  /// on the request form.
+  static const Color accentDeep = Color(0xFFE6A133);
+
+  /// Success / confirmation (check-circle icon, verified states).
+  static const Color success = Color(0xFF2E7D32);
+
+  /// Soft green fill behind [success] labels ("3 nuevas").
+  static const Color successSurface = Color(0xFFE8F5E9);
+
+  /// Warm neutral fill for low-emphasis tags (vehicle model) and the
+  /// divider above card actions.
+  static const Color neutralSurface = Color(0xFFF3F2EC);
+
+  /// Informational blue ("Mensajería" category label).
+  static const Color info = Color(0xFF0288D1);
+
+  /// Soft blue fill behind [info] labels.
+  static const Color infoSurface = Color(0xFFE8F5FD);
+
+  /// Bright emerald for payment-released status ("Liberado al transportista").
+  static const Color successBright = Color(0xFF10B981);
+
+  /// Soft fill behind [successBright] labels.
+  static const Color successBrightSurface = Color(0xFFECFDF5);
+
+  /// Mint fill behind the "10% OFF" discount label.
+  static const Color discountSurface = Color(0xFFE6F7F0);
+
+  /// Dashed border of upload drop zones.
+  static const Color dashedBorder = Color(0xFFDCDAD2);
+
+  /// Orange used for rating stars and sparkles.
+  static const Color rating = Color(0xFFF59E0B);
+
+  /// Dark green label on soft-green status badges ("Servicio Completado").
+  static const Color successDark = Color(0xFF137333);
+
+  /// Soft green fill behind [successDark] labels.
+  static const Color successDarkSurface = Color(0xFFE6F4EA);
+
+  /// Error / blocking text ("Pendiente de calificar — acción requerida").
+  static const Color danger = Color(0xFFDC2626);
+
+  /// Soft red fill behind [danger] labels.
+  static const Color dangerSurface = Color(0xFFFEE2E2);
+
+  /// Amber warning text ("Pendiente de calificar").
+  static const Color warning = Color(0xFFD97706);
+
+  /// Soft amber fill behind [warning] labels.
+  static const Color warningSoft = Color(0xFFFEF3C7);
+
+  /// Dark teal label on the gray "FINALIZADO" chat badge.
+  static const Color archivedText = Color(0xFF2E5B51);
+
+  /// Bottom-sheet drag handle.
+  static const Color dragHandle = Color(0xFFD1CDC8);
+
+  /// Scrim behind modal bottom sheets (rgba(18,18,18,0.6)).
+  static const Color scrim = Color(0x99121212);
+
+  /// Soft red-orange fill for warning tags ("Ascensor: No (Escaleras)").
+  static const Color warningSurface = Color(0xFFFFF0ED);
 }
