@@ -5,6 +5,7 @@ import 'screens/calificacion_screens.dart';
 import 'screens/carga_pago_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/comprobante_pago_screen.dart';
+import 'screens/confirmacion_transportista_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
 import 'screens/exito_confirmacion_screen.dart';
@@ -58,6 +59,7 @@ abstract final class AppRoutes {
   // Requester: offers.
   static const String listadoOfertas = '/ofertas';
   static const String perfilTransportista = '/ofertas/perfil';
+  static const String confirmacionTransportista = '/ofertas/confirmar';
   static const String exitoConfirmacion = '/ofertas/confirmada';
 
   // Requester: payment.
@@ -119,6 +121,7 @@ abstract final class AppRoutes {
     publicacionActiva: (_) => const PublicacionActivaScreen(),
     listadoOfertas: (_) => const ListadoOfertasScreen(),
     perfilTransportista: (_) => const PerfilTransportistaScreen(),
+    confirmacionTransportista: (_) => const ConfirmacionTransportistaScreen(),
     exitoConfirmacion: (_) => const ExitoConfirmacionScreen(),
     resumenPago: (_) => const ResumenPagoScreen(),
     cargaPago: (_) => const CargaPagoScreen(),

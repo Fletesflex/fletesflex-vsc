@@ -22,7 +22,7 @@ class ListadoOfertasScreen extends StatelessWidget {
 
   void _choose(BuildContext context, Offer offer) {
     Navigator.of(context).pushNamed(
-      AppRoutes.exitoConfirmacion,
+      AppRoutes.confirmacionTransportista,
       arguments: offer,
     );
   }

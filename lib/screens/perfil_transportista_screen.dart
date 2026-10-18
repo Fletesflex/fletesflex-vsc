@@ -64,7 +64,7 @@ class PerfilTransportistaScreen extends StatelessWidget {
               child: PrimaryButton(
                 label: 'Elegir esta oferta',
                 onPressed: () => Navigator.of(context).pushNamed(
-                  AppRoutes.exitoConfirmacion,
+                  AppRoutes.confirmacionTransportista,
                   arguments: offer,
                 ),
               ),
