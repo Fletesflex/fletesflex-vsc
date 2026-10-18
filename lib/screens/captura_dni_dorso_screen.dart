@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -10,8 +11,8 @@ class CapturaDniDorsoScreen extends StatelessWidget {
   const CapturaDniDorsoScreen({super.key});
 
   void _handleCapture(BuildContext context) {
-    // TODO: open the device camera and capture the DNI back photo, then
-    // continue to the "prueba de vida" selfie step.
+    // TODO: open the device camera and capture the DNI back photo.
+    Navigator.of(context).pushNamed(AppRoutes.pruebaDeVidaSelfie);
   }
 
   void _handleUpload(BuildContext context) {

@@ -18,6 +18,7 @@ import 'screens/flete_publicado_screen.dart';
 import 'screens/formulario_paso1_screen.dart';
 import 'screens/formulario_paso2_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/identidad_verificada_ok_screen.dart';
 import 'screens/listado_ofertas_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/mensajeria_confirmacion_screen.dart';
@@ -30,11 +31,14 @@ import 'screens/oferta_enviada_screen.dart';
 import 'screens/pago_resultado_screens.dart';
 import 'screens/pago_transferencia_screen.dart';
 import 'screens/perfil_transportista_screen.dart';
+import 'screens/prueba_de_vida_selfie_screen.dart';
 import 'screens/publicacion_activa_screen.dart';
 import 'screens/resumen_pago_screen.dart';
 import 'screens/resumen_precio_screen.dart';
 import 'screens/transportista_solicitudes_screen.dart';
 import 'screens/verificacion_intro_screen.dart';
+import 'screens/verificacion_procesando_screen.dart';
+import 'screens/verificacion_rechazada_screen.dart';
 import 'screens/verificando_transferencia_screen.dart';
 
 /// Named route paths for the app's screens.
@@ -115,6 +119,14 @@ abstract final class AppRoutes {
       '/transportista/verificacion/dni-frente';
   static const String capturaDniDorso =
       '/transportista/verificacion/dni-dorso';
+  static const String pruebaDeVidaSelfie =
+      '/transportista/verificacion/selfie';
+  static const String verificacionProcesando =
+      '/transportista/verificacion/procesando';
+  static const String identidadVerificada =
+      '/transportista/verificacion/aprobada';
+  static const String verificacionRechazada =
+      '/transportista/verificacion/rechazada';
 
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
@@ -176,5 +188,9 @@ abstract final class AppRoutes {
     verificacionIntro: (_) => const VerificacionIntroScreen(),
     capturaDniFrente: (_) => const CapturaDniFrenteScreen(),
     capturaDniDorso: (_) => const CapturaDniDorsoScreen(),
+    pruebaDeVidaSelfie: (_) => const PruebaDeVidaSelfieScreen(),
+    verificacionProcesando: (_) => const VerificacionProcesandoScreen(),
+    identidadVerificada: (_) => const IdentidadVerificadaOkScreen(),
+    verificacionRechazada: (_) => const VerificacionRechazadaScreen(),
   };
 }
