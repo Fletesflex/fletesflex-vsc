@@ -23,6 +23,7 @@ import 'screens/mensajeria_paso1_screen.dart';
 import 'screens/mensajeria_paso2_screen.dart';
 import 'screens/mensajeria_publicada_screen.dart';
 import 'screens/mis_ofertas_screen.dart';
+import 'screens/notificacion_transportista_screen.dart';
 import 'screens/oferta_enviada_screen.dart';
 import 'screens/pago_resultado_screens.dart';
 import 'screens/pago_transferencia_screen.dart';
@@ -102,6 +103,8 @@ abstract final class AppRoutes {
   static const String confirmacionOfertaEnviada =
       '/transportista/solicitud/enviada';
   static const String misOfertas = '/transportista/ofertas';
+  static const String notificacionTransportista =
+      '/transportista/notificacion';
 
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
@@ -159,5 +162,6 @@ abstract final class AppRoutes {
     confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),
     confirmacionOfertaEnviada: (_) => const OfertaEnviadaScreen(),
     misOfertas: (_) => const MisOfertasScreen(),
+    notificacionTransportista: (_) => const NotificacionTransportistaScreen(),
   };
 }

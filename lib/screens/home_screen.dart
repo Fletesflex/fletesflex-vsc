@@ -23,8 +23,11 @@ class HomeScreen extends StatelessWidget {
     Navigator.of(context).pushNamed(AppRoutes.mensajeriaPaso1);
   }
 
-  void _handleNotificationsTap() {
-    // TODO: navigate to notifications.
+  void _handleNotificationsTap(BuildContext context) {
+    // TODO: quitar — botón temporal para previsualizar
+    // notificacion_transportista_screen.dart hasta que se defina desde
+    // dónde se navega a ella de verdad.
+    Navigator.of(context).pushNamed(AppRoutes.notificacionTransportista);
   }
 
   @override
@@ -39,7 +42,9 @@ class HomeScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: AppSpacing.sectionGap),
-                _Header(onNotificationsTap: _handleNotificationsTap),
+                _Header(
+                  onNotificationsTap: () => _handleNotificationsTap(context),
+                ),
                 const SizedBox(height: AppSpacing.sectionGap),
                 const _SectionIntro(),
                 const SizedBox(height: AppSpacing.lg),
