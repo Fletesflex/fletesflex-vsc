@@ -35,6 +35,7 @@ class AppPage extends StatelessWidget {
       AppSpacing.lg,
     ),
     this.crossAxisAlignment = CrossAxisAlignment.stretch,
+    this.backgroundColor = AppColors.background,
   });
 
   /// When null (and [header] is null), no top bar is shown.
@@ -57,10 +58,14 @@ class AppPage extends StatelessWidget {
   final EdgeInsetsGeometry bodyPadding;
   final CrossAxisAlignment crossAxisAlignment;
 
+  /// Scaffold background. Defaults to the standard light [AppColors.background];
+  /// pass a dark color for full-screen dark chrome (e.g. camera captures).
+  final Color backgroundColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: backgroundColor,
       body: SafeArea(
         bottom: !elevatedBottom,
         child: Column(

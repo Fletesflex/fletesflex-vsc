@@ -101,4 +101,8 @@ abstract final class AppColors {
 
   /// Muted brownish-gray for unselected icons (package-type picker).
   static const Color iconMuted = Color(0xFF918B86);
+
+  /// Bright green for text, dots and checkmarks on dark surfaces (carrier
+  /// identity-verification steps).
+  static const Color successBrightOnDark = Color(0xFF34D399);
 }

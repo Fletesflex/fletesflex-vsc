@@ -2,6 +2,8 @@ import 'package:flutter/widgets.dart';
 
 import 'models/rating.dart';
 import 'screens/calificacion_screens.dart';
+import 'screens/captura_dni_dorso_screen.dart';
+import 'screens/captura_dni_frente_screen.dart';
 import 'screens/carga_pago_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/comprobante_pago_screen.dart';
@@ -32,6 +34,7 @@ import 'screens/publicacion_activa_screen.dart';
 import 'screens/resumen_pago_screen.dart';
 import 'screens/resumen_precio_screen.dart';
 import 'screens/transportista_solicitudes_screen.dart';
+import 'screens/verificacion_intro_screen.dart';
 import 'screens/verificando_transferencia_screen.dart';
 
 /// Named route paths for the app's screens.
@@ -106,6 +109,13 @@ abstract final class AppRoutes {
   static const String notificacionTransportista =
       '/transportista/notificacion';
 
+  // Carrier: identity & document verification.
+  static const String verificacionIntro = '/transportista/verificacion';
+  static const String capturaDniFrente =
+      '/transportista/verificacion/dni-frente';
+  static const String capturaDniDorso =
+      '/transportista/verificacion/dni-dorso';
+
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
     login: (_) => const LoginScreen(),
@@ -163,5 +173,8 @@ abstract final class AppRoutes {
     confirmacionOfertaEnviada: (_) => const OfertaEnviadaScreen(),
     misOfertas: (_) => const MisOfertasScreen(),
     notificacionTransportista: (_) => const NotificacionTransportistaScreen(),
+    verificacionIntro: (_) => const VerificacionIntroScreen(),
+    capturaDniFrente: (_) => const CapturaDniFrenteScreen(),
+    capturaDniDorso: (_) => const CapturaDniDorsoScreen(),
   };
 }

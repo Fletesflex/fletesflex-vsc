@@ -36,7 +36,7 @@ class UploadDropZone extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(AppRadius.xl),
       child: CustomPaint(
-        painter: _DashedBorderPainter(color: borderColor, radius: AppRadius.xl),
+        painter: DashedBorderPainter(color: borderColor, radius: AppRadius.xl),
         child: Container(
           width: double.infinity,
           padding: padding,
@@ -77,27 +77,36 @@ class UploadDropZone extends StatelessWidget {
   }
 }
 
-class _DashedBorderPainter extends CustomPainter {
-  const _DashedBorderPainter({required this.color, required this.radius});
+/// Dashed rounded-rectangle outline, used by [UploadDropZone] and other
+/// dashed-border tap targets (e.g. the DNI capture guide).
+class DashedBorderPainter extends CustomPainter {
+  const DashedBorderPainter({
+    required this.color,
+    required this.radius,
+    this.strokeWidth = 1.5,
+    this.dash = 6.0,
+    this.gap = 4.0,
+  });
 
   final Color color;
   final double radius;
+  final double strokeWidth;
+  final double dash;
+  final double gap;
 
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
       ..color = color
-      ..strokeWidth = 1.5
+      ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
     final path = Path()
       ..addRRect(
         RRect.fromRectAndRadius(
           Offset.zero & size,
           Radius.circular(radius),
-        ).deflate(0.75),
+        ).deflate(strokeWidth / 2),
       );
-    const dash = 6.0;
-    const gap = 4.0;
     for (final metric in path.computeMetrics()) {
       var distance = 0.0;
       while (distance < metric.length) {
@@ -108,6 +117,8 @@ class _DashedBorderPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_DashedBorderPainter oldDelegate) =>
-      oldDelegate.color != color || oldDelegate.radius != radius;
+  bool shouldRepaint(DashedBorderPainter oldDelegate) =>
+      oldDelegate.color != color ||
+      oldDelegate.radius != radius ||
+      oldDelegate.strokeWidth != strokeWidth;
 }
