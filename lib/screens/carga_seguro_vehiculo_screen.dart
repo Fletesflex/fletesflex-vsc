@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -24,8 +25,8 @@ class CargaSeguroVehiculoScreen extends StatelessWidget {
   }
 
   void _handleSubmit(BuildContext context) {
-    // TODO: persist the uploaded document and send it to review.
-    Navigator.of(context).maybePop();
+    // TODO: persist the uploaded document before sending it to review.
+    Navigator.of(context).pushReplacementNamed(AppRoutes.documentoEnRevision);
   }
 
   @override

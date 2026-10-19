@@ -12,6 +12,8 @@ import 'screens/confirmacion_transportista_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
 import 'screens/datos_vehiculo_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
+import 'screens/documento_en_revision_screen.dart';
+import 'screens/documento_rechazado_screen.dart';
 import 'screens/estado_documentacion_screen.dart';
 import 'screens/exito_confirmacion_screen.dart';
 import 'screens/flete_confirmacion_screen.dart';
@@ -137,6 +139,10 @@ abstract final class AppRoutes {
       '/transportista/verificacion/documentos';
   static const String cargaSeguroVehiculo =
       '/transportista/verificacion/documentos/seguro';
+  static const String documentoEnRevision =
+      '/transportista/verificacion/documentos/en-revision';
+  static const String documentoRechazado =
+      '/transportista/verificacion/documentos/rechazado';
 
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
@@ -205,5 +211,7 @@ abstract final class AppRoutes {
     datosVehiculo: (_) => const DatosVehiculoScreen(),
     estadoDocumentacion: (_) => const EstadoDocumentacionScreen(),
     cargaSeguroVehiculo: (_) => const CargaSeguroVehiculoScreen(),
+    documentoEnRevision: (_) => const DocumentoEnRevisionScreen(),
+    documentoRechazado: (_) => const DocumentoRechazadoScreen(),
   };
 }

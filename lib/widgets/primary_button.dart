@@ -13,6 +13,9 @@ enum ButtonVariant {
   /// White fill with a border ("Cancelar").
   outlined,
 
+  /// White fill with an accent-colored border ("Volver al inicio").
+  outlinedAccent,
+
   /// Dark fill with white label.
   dark,
 }
@@ -47,6 +50,11 @@ class PrimaryButton extends StatelessWidget {
           AppColors.surface,
           AppColors.textPrimary,
           const BorderSide(color: AppColors.border, width: 1.5),
+        ),
+      ButtonVariant.outlinedAccent => (
+          AppColors.surface,
+          AppColors.textPrimary,
+          const BorderSide(color: AppColors.accent, width: 1.5),
         ),
       ButtonVariant.dark => (AppColors.textPrimary, AppColors.surface, null),
     };

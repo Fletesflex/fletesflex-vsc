@@ -78,6 +78,8 @@ class EstadoDocumentacionScreen extends StatelessWidget {
           subtitle: 'Verificación técnica vehicular',
           status: DocumentStatus.inReview,
           footnote: 'Subido hace 2 hs · Verificando con ente regulador',
+          onTap: () =>
+              Navigator.of(context).pushNamed(AppRoutes.documentoRechazado),
         ),
         const SizedBox(height: 14),
         DocumentStatusCard(
