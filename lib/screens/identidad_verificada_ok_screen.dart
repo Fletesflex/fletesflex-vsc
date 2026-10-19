@@ -23,11 +23,9 @@ class IdentidadVerificadaOkScreen extends StatelessWidget {
       ),
       bottom: PrimaryButton(
         label: 'Continuar con los papeles del vehículo',
-        // TODO: route to the vehicle-documents flow once it's built; for
-        // now this just returns the carrier to their request list.
         onPressed: () => Navigator.of(
           context,
-        ).pushReplacementNamed(AppRoutes.transportistaSolicitudes),
+        ).pushReplacementNamed(AppRoutes.datosVehiculo),
       ),
       children: [
         const SuccessBurst(),

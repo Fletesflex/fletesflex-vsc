@@ -9,6 +9,7 @@ export 'app_toggle.dart';
 export 'carrier_nav_bar.dart';
 export 'category_card.dart';
 export 'check_tile.dart';
+export 'document_status_card.dart';
 export 'form_text_field.dart';
 export 'offer_card.dart';
 export 'option_chip.dart';

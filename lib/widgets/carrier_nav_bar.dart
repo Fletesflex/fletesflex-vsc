@@ -12,6 +12,11 @@ enum CarrierTab {
     AppRoutes.transportistaSolicitudes,
   ),
   ofertas('Mis ofertas', 'assets/icons/nav_tag.svg', AppRoutes.misOfertas),
+  verificacion(
+    'Verificación',
+    'assets/icons/shield.svg',
+    AppRoutes.estadoDocumentacion,
+  ),
   avisos('Avisos', 'assets/icons/nav_bell.svg', null),
   perfil('Mi Perfil', 'assets/icons/nav_user.svg', null);
 

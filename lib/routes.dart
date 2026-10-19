@@ -5,11 +5,14 @@ import 'screens/calificacion_screens.dart';
 import 'screens/captura_dni_dorso_screen.dart';
 import 'screens/captura_dni_frente_screen.dart';
 import 'screens/carga_pago_screen.dart';
+import 'screens/carga_seguro_vehiculo_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/comprobante_pago_screen.dart';
 import 'screens/confirmacion_transportista_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
+import 'screens/datos_vehiculo_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
+import 'screens/estado_documentacion_screen.dart';
 import 'screens/exito_confirmacion_screen.dart';
 import 'screens/flete_confirmacion_screen.dart';
 import 'screens/flete_paso1_screen.dart';
@@ -128,6 +131,13 @@ abstract final class AppRoutes {
   static const String verificacionRechazada =
       '/transportista/verificacion/rechazada';
 
+  // Carrier: vehicle & document verification (sub-flow B).
+  static const String datosVehiculo = '/transportista/verificacion/vehiculo';
+  static const String estadoDocumentacion =
+      '/transportista/verificacion/documentos';
+  static const String cargaSeguroVehiculo =
+      '/transportista/verificacion/documentos/seguro';
+
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
     login: (_) => const LoginScreen(),
@@ -192,5 +202,8 @@ abstract final class AppRoutes {
     verificacionProcesando: (_) => const VerificacionProcesandoScreen(),
     identidadVerificada: (_) => const IdentidadVerificadaOkScreen(),
     verificacionRechazada: (_) => const VerificacionRechazadaScreen(),
+    datosVehiculo: (_) => const DatosVehiculoScreen(),
+    estadoDocumentacion: (_) => const EstadoDocumentacionScreen(),
+    cargaSeguroVehiculo: (_) => const CargaSeguroVehiculoScreen(),
   };
 }
