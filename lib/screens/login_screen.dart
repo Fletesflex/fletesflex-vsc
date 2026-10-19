@@ -199,26 +199,20 @@ class _PhoneInput extends StatelessWidget {
             ),
             const SizedBox(width: AppSpacing.sm),
             Expanded(
-              child: Container(
-                padding: const EdgeInsets.all(AppSpacing.sm),
-                decoration: BoxDecoration(
-                  color: AppColors.surface,
-                  border: Border.all(color: AppColors.accent, width: 2),
-                  borderRadius: BorderRadius.circular(AppRadius.md),
-                ),
-                child: TextField(
-                  controller: controller,
-                  keyboardType: TextInputType.phone,
-                  cursorColor: AppColors.accent,
-                  style: AppTypography.inputValue,
-                  decoration: InputDecoration(
-                    isDense: true,
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.zero,
-                    hintText: '11 5834 9281',
-                    hintStyle: AppTypography.inputValue
-                        .copyWith(color: AppColors.textMuted),
+              child: TextField(
+                controller: controller,
+                keyboardType: TextInputType.phone,
+                cursorColor: AppColors.accent,
+                style: AppTypography.inputValue,
+                decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(
+                    horizontal: AppSpacing.sm,
+                    vertical: AppSpacing.sm,
                   ),
+                  hintText: '11 5834 9281',
+                  hintStyle: AppTypography.inputValue
+                      .copyWith(color: AppColors.textMuted),
                 ),
               ),
             ),
@@ -306,7 +300,7 @@ class _GoogleButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SvgPicture.asset(
-              'assets/icons/circle_x.svg',
+              'assets/icons/google.svg',
               width: 20,
               height: 20,
             ),
