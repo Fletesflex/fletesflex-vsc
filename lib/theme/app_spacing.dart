@@ -31,4 +31,8 @@ abstract final class AppSpacing {
 
   /// 24 — section spacing and the screen's horizontal page margin.
   static const double lg = 24;
+
+  /// 480 — maximum width of the app's content column on large screens
+  /// (e.g. Chrome on desktop). Below this width (phones) it has no effect.
+  static const double maxContentWidth = 480;
 }

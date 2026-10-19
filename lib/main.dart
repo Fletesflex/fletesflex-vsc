@@ -18,6 +18,20 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       initialRoute: AppRoutes.login,
       routes: AppRoutes.table,
+      builder: (context, child) {
+        if (child == null) return const SizedBox.shrink();
+        return ColoredBox(
+          color: AppColors.border,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                maxWidth: AppSpacing.maxContentWidth,
+              ),
+              child: child,
+            ),
+          ),
+        );
+      },
     );
   }
 }
