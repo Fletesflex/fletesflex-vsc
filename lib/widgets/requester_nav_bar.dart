@@ -12,7 +12,7 @@ enum RequesterTab {
     'assets/icons/nav_clipboard.svg',
     AppRoutes.historialSolicitante,
   ),
-  avisos('Avisos', 'assets/icons/nav_bell.svg', null),
+  avisos('Avisos', 'assets/icons/nav_bell.svg', AppRoutes.avisosSolicitante),
   perfil('Perfil', 'assets/icons/nav_user.svg', null);
 
   const RequesterTab(this.label, this.iconAsset, this.route);

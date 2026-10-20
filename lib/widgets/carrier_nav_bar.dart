@@ -17,7 +17,7 @@ enum CarrierTab {
     'assets/icons/shield.svg',
     AppRoutes.estadoDocumentacion,
   ),
-  avisos('Avisos', 'assets/icons/nav_bell.svg', null),
+  avisos('Avisos', 'assets/icons/nav_bell.svg', AppRoutes.avisosTransportista),
   perfil('Mi Perfil', 'assets/icons/nav_user.svg', null);
 
   const CarrierTab(this.label, this.iconAsset, this.route);

@@ -1,6 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 import 'models/rating.dart';
+import 'screens/avisos_solicitante_screen.dart';
+import 'screens/avisos_transportista_screen.dart';
 import 'screens/calificacion_screens.dart';
 import 'screens/captura_dni_dorso_screen.dart';
 import 'screens/captura_dni_frente_screen.dart';
@@ -114,6 +116,10 @@ abstract final class AppRoutes {
   static const String historialSolicitante = '/servicios';
   static const String historialTransportista = '/transportista/servicios';
 
+  // Notifications.
+  static const String avisosSolicitante = '/avisos';
+  static const String avisosTransportista = '/transportista/avisos';
+
   // Carrier.
   static const String transportistaSolicitudes = '/transportista';
   static const String detalleSolicitud = '/transportista/solicitud';
@@ -203,6 +209,8 @@ abstract final class AppRoutes {
         const HistorialServiciosScreen(target: RatingTarget.carrier),
     historialTransportista: (_) =>
         const HistorialServiciosScreen(target: RatingTarget.requester),
+    avisosSolicitante: (_) => const AvisosSolicitanteScreen(),
+    avisosTransportista: (_) => const AvisosTransportistaScreen(),
     transportistaSolicitudes: (_) => const TransportistaSolicitudesScreen(),
     detalleSolicitud: (_) => const DetalleSolicitudScreen(),
     confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),

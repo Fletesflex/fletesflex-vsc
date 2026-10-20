@@ -24,10 +24,7 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _handleNotificationsTap(BuildContext context) {
-    // TODO: quitar — botón temporal para previsualizar
-    // notificacion_transportista_screen.dart hasta que se defina desde
-    // dónde se navega a ella de verdad.
-    Navigator.of(context).pushNamed(AppRoutes.notificacionTransportista);
+    Navigator.of(context).pushNamed(AppRoutes.avisosSolicitante);
   }
 
   @override

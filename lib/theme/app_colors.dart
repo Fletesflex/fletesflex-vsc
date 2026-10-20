@@ -105,4 +105,11 @@ abstract final class AppColors {
   /// Bright green for text, dots and checkmarks on dark surfaces (carrier
   /// identity-verification steps).
   static const Color successBrightOnDark = Color(0xFF34D399);
+
+  /// Neutral gray icon-tile fill behind the message icon on notification
+  /// cards (Avisos).
+  static const Color iconSurfaceNeutral = Color(0xFFEDEDED);
+
+  /// Soft yellow row fill marking an unread notification card.
+  static const Color unreadSurface = Color(0xFFFFFBEA);
 }

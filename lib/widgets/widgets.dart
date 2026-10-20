@@ -6,6 +6,7 @@ export 'app_card.dart';
 export 'app_page.dart';
 export 'app_tag.dart';
 export 'app_toggle.dart';
+export 'avisos_widgets.dart';
 export 'carrier_nav_bar.dart';
 export 'category_card.dart';
 export 'check_tile.dart';
