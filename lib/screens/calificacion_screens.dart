@@ -841,6 +841,9 @@ class _HistorialServiciosScreenState extends State<HistorialServiciosScreen> {
 
     return Scaffold(
       backgroundColor: AppColors.background,
+      bottomNavigationBar: _isRequester
+          ? const RequesterNavBar(current: RequesterTab.misServicios)
+          : null,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

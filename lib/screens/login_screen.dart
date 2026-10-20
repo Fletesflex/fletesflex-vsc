@@ -24,9 +24,12 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _handleContinue() {
-    // TODO: wire up phone-number submission.
+    // TODO: wire up phone-number submission (send the SMS code).
     FocusScope.of(context).unfocus();
-    Navigator.of(context).pushNamed(AppRoutes.home);
+    Navigator.of(context).pushNamed(
+      AppRoutes.codigoVerificacion,
+      arguments: _phoneController.text,
+    );
   }
 
   void _handleContinueWithGoogle() {

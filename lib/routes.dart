@@ -7,6 +7,7 @@ import 'screens/captura_dni_frente_screen.dart';
 import 'screens/carga_pago_screen.dart';
 import 'screens/carga_seguro_vehiculo_screen.dart';
 import 'screens/chat_screen.dart';
+import 'screens/codigo_verificacion_screen.dart';
 import 'screens/comprobante_pago_screen.dart';
 import 'screens/confirmacion_transportista_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
@@ -14,6 +15,7 @@ import 'screens/datos_vehiculo_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
 import 'screens/documento_en_revision_screen.dart';
 import 'screens/documento_rechazado_screen.dart';
+import 'screens/elegir_rol_screen.dart';
 import 'screens/estado_documentacion_screen.dart';
 import 'screens/exito_confirmacion_screen.dart';
 import 'screens/flete_confirmacion_screen.dart';
@@ -50,6 +52,10 @@ import 'screens/verificando_transferencia_screen.dart';
 abstract final class AppRoutes {
   static const String login = '/';
   static const String home = '/home';
+
+  // Onboarding: phone verification + role selection.
+  static const String codigoVerificacion = '/codigo-verificacion';
+  static const String elegirRol = '/elegir-rol';
 
   // Requester: Mudanza request flow.
   static const String formularioPaso1 = '/mudanza/paso-1';
@@ -148,6 +154,8 @@ abstract final class AppRoutes {
   static Map<String, WidgetBuilder> get table => {
     login: (_) => const LoginScreen(),
     home: (_) => const HomeScreen(),
+    codigoVerificacion: (_) => const CodigoVerificacionScreen(),
+    elegirRol: (_) => const ElegirRolScreen(),
     fletePaso1: (_) => const FletePaso1Screen(),
     fletePaso2: (_) => const FletePaso2Screen(),
     fleteConfirmacion: (_) => const FleteConfirmacionScreen(),

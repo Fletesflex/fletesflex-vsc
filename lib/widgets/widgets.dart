@@ -19,6 +19,7 @@ export 'profile_widgets.dart';
 export 'rating.dart';
 export 'rating_widgets.dart';
 export 'request_card.dart';
+export 'requester_nav_bar.dart';
 export 'route_summary.dart';
 export 'status_hero.dart';
 export 'upload_drop_zone.dart';
