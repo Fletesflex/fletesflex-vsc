@@ -16,6 +16,7 @@ export 'offer_card.dart';
 export 'option_chip.dart';
 export 'price_box.dart';
 export 'primary_button.dart';
+export 'profile_menu_widgets.dart';
 export 'profile_widgets.dart';
 export 'rating.dart';
 export 'rating_widgets.dart';

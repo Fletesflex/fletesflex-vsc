@@ -112,4 +112,12 @@ abstract final class AppColors {
 
   /// Soft yellow row fill marking an unread notification card.
   static const Color unreadSurface = Color(0xFFFFFBEA);
+
+  /// Track background behind the "Solicitante | Transportista" segmented
+  /// mode selector on "Mi perfil".
+  static const Color segmentedTrack = Color(0xFFF1F1F3);
+
+  /// Warm amber label on soft-yellow progress/pending badges ("En
+  /// revisión", "2 de 4" document count).
+  static const Color verificationAmber = Color(0xFFB7791F);
 }

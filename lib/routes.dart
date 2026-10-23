@@ -34,6 +34,7 @@ import 'screens/mensajeria_confirmacion_screen.dart';
 import 'screens/mensajeria_paso1_screen.dart';
 import 'screens/mensajeria_paso2_screen.dart';
 import 'screens/mensajeria_publicada_screen.dart';
+import 'screens/mi_perfil_screens.dart';
 import 'screens/mis_ofertas_screen.dart';
 import 'screens/notificacion_transportista_screen.dart';
 import 'screens/oferta_enviada_screen.dart';
@@ -120,6 +121,9 @@ abstract final class AppRoutes {
   static const String avisosSolicitante = '/avisos';
   static const String avisosTransportista = '/transportista/avisos';
 
+  // Requester: own profile ("Mi perfil").
+  static const String perfilSolicitante = '/perfil';
+
   // Carrier.
   static const String transportistaSolicitudes = '/transportista';
   static const String detalleSolicitud = '/transportista/solicitud';
@@ -129,6 +133,9 @@ abstract final class AppRoutes {
   static const String misOfertas = '/transportista/ofertas';
   static const String notificacionTransportista =
       '/transportista/notificacion';
+
+  /// Carrier's own profile ("Mi perfil").
+  static const String miPerfilTransportista = '/transportista/perfil';
 
   // Carrier: identity & document verification.
   static const String verificacionIntro = '/transportista/verificacion';
@@ -211,12 +218,14 @@ abstract final class AppRoutes {
         const HistorialServiciosScreen(target: RatingTarget.requester),
     avisosSolicitante: (_) => const AvisosSolicitanteScreen(),
     avisosTransportista: (_) => const AvisosTransportistaScreen(),
+    perfilSolicitante: (_) => const PerfilSolicitanteScreen(),
     transportistaSolicitudes: (_) => const TransportistaSolicitudesScreen(),
     detalleSolicitud: (_) => const DetalleSolicitudScreen(),
     confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),
     confirmacionOfertaEnviada: (_) => const OfertaEnviadaScreen(),
     misOfertas: (_) => const MisOfertasScreen(),
     notificacionTransportista: (_) => const NotificacionTransportistaScreen(),
+    miPerfilTransportista: (_) => const MiPerfilTransportistaScreen(),
     verificacionIntro: (_) => const VerificacionIntroScreen(),
     capturaDniFrente: (_) => const CapturaDniFrenteScreen(),
     capturaDniDorso: (_) => const CapturaDniDorsoScreen(),
