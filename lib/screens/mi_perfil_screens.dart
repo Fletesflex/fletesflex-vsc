@@ -70,9 +70,9 @@ class PerfilSolicitanteScreen extends StatelessWidget {
                     const CarrierUpsellCard.pending()
                   else
                     CarrierUpsellCard(
-                      onTap: () => Navigator.of(
-                        context,
-                      ).pushNamed(AppRoutes.verificacionIntro),
+                      onTap: () =>
+                          Navigator.of(context)
+                              .pushNamed(AppRoutes.verificacionIntro),
                     ),
                   const SizedBox(height: 14),
                   const ProfileSectionLabel('CUENTA'),
@@ -89,16 +89,16 @@ class PerfilSolicitanteScreen extends StatelessWidget {
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/history.svg',
                         label: 'Mis servicios',
-                        onTap: () => Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.historialSolicitante),
+                        onTap: () =>
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.historialSolicitante),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/star_section.svg',
                         label: 'Mis calificaciones',
-                        onTap: () => Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.perfilCalificaciones),
+                        onTap: () =>
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.perfilCalificaciones),
                       ),
                     ],
                   ),
@@ -127,6 +127,9 @@ class PerfilSolicitanteScreen extends StatelessWidget {
                   ProfileLogoutButton(
                     onTap: () {
                       // TODO: sign the user out.
+                      Navigator.of(
+                        context,
+                      ).pushNamedAndRemoveUntil(AppRoutes.login, (_) => false);
                     },
                   ),
                 ],
@@ -202,31 +205,31 @@ class MiPerfilTransportistaScreen extends StatelessWidget {
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/truck_sm.svg',
                         label: 'Mi vehículo',
-                        onTap: () {
-                          // TODO: open the vehicle editor.
-                        },
+                        onTap: () =>
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.datosVehiculo),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/file.svg',
                         label: 'Documentación',
                         badge: '2 de 4',
-                        onTap: () => Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.estadoDocumentacion),
+                        onTap: () =>
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.estadoDocumentacion),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/star_section.svg',
                         label: 'Mis calificaciones',
-                        onTap: () => Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.perfilCalificaciones),
+                        onTap: () =>
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.perfilCalificaciones),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/history.svg',
                         label: 'Historial de servicios',
-                        onTap: () => Navigator.of(
-                          context,
-                        ).pushNamed(AppRoutes.historialTransportista),
+                        onTap: () =>
+                            Navigator.of(context)
+                                .pushNamed(AppRoutes.historialTransportista),
                       ),
                     ],
                   ),
@@ -255,6 +258,9 @@ class MiPerfilTransportistaScreen extends StatelessWidget {
                   ProfileLogoutButton(
                     onTap: () {
                       // TODO: sign the user out.
+                      Navigator.of(
+                        context,
+                      ).pushNamedAndRemoveUntil(AppRoutes.login, (_) => false);
                     },
                   ),
                 ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/notification.dart';
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -31,6 +32,37 @@ class _AvisosSolicitanteScreenState extends State<AvisosSolicitanteScreen> {
           ),
       ];
     });
+  }
+
+  void _onTapNotification(AppNotification notification) {
+    setState(() {
+      _groups = [
+        for (final group in _groups)
+          NotificationGroup(
+            label: group.label,
+            items: [
+              for (final item in group.items)
+                identical(item, notification) ? item.markRead() : item,
+            ],
+          ),
+      ];
+    });
+
+    final String? route;
+    switch (notification.type) {
+      case AppNotificationType.newOffer:
+        route = AppRoutes.listadoOfertas;
+      case AppNotificationType.newMessage:
+        route = AppRoutes.chat;
+      case AppNotificationType.ratingPrompt:
+        route = AppRoutes.avisoCalificacionSolicitante;
+      case AppNotificationType.jobAssigned:
+      case AppNotificationType.documentApproved:
+      case AppNotificationType.documentRejected:
+      case AppNotificationType.other:
+        route = null;
+    }
+    if (route != null) Navigator.of(context).pushNamed(route);
   }
 
   List<NotificationGroup> get _visibleGroups {
@@ -90,7 +122,10 @@ class _AvisosSolicitanteScreenState extends State<AvisosSolicitanteScreen> {
                             const SizedBox(height: AppSpacing.sectionGap),
                           NotificationGroupLabel(group.label),
                           const SizedBox(height: 10),
-                          NotificationListCard(items: group.items),
+                          NotificationListCard(
+                            items: group.items,
+                            onTapItem: _onTapNotification,
+                          ),
                         ],
                       ],
                     ),

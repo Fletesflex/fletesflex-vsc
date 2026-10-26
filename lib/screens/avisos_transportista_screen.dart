@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/notification.dart';
+import '../routes.dart';
 import '../theme/theme.dart';
 import '../widgets/widgets.dart';
 
@@ -16,8 +17,7 @@ class AvisosTransportistaScreen extends StatefulWidget {
       _AvisosTransportistaScreenState();
 }
 
-class _AvisosTransportistaScreenState
-    extends State<AvisosTransportistaScreen> {
+class _AvisosTransportistaScreenState extends State<AvisosTransportistaScreen> {
   List<NotificationGroup> _groups = SampleNotifications.carrier;
   NotificationFilter _filter = NotificationFilter.all;
 
@@ -31,6 +31,38 @@ class _AvisosTransportistaScreenState
           ),
       ];
     });
+  }
+
+  void _onTapNotification(AppNotification notification) {
+    setState(() {
+      _groups = [
+        for (final group in _groups)
+          NotificationGroup(
+            label: group.label,
+            items: [
+              for (final item in group.items)
+                identical(item, notification) ? item.markRead() : item,
+            ],
+          ),
+      ];
+    });
+
+    final String? route;
+    switch (notification.type) {
+      case AppNotificationType.jobAssigned:
+        route = AppRoutes.notificacionTransportista;
+      case AppNotificationType.newMessage:
+        route = AppRoutes.chat;
+      case AppNotificationType.documentApproved:
+      case AppNotificationType.documentRejected:
+        route = AppRoutes.estadoDocumentacion;
+      case AppNotificationType.ratingPrompt:
+        route = AppRoutes.avisoCalificacionTransportista;
+      case AppNotificationType.newOffer:
+      case AppNotificationType.other:
+        route = null;
+    }
+    if (route != null) Navigator.of(context).pushNamed(route);
   }
 
   List<NotificationGroup> get _visibleGroups {
@@ -90,7 +122,10 @@ class _AvisosTransportistaScreenState
                             const SizedBox(height: AppSpacing.sectionGap),
                           NotificationGroupLabel(group.label),
                           const SizedBox(height: 10),
-                          NotificationListCard(items: group.items),
+                          NotificationListCard(
+                            items: group.items,
+                            onTapItem: _onTapNotification,
+                          ),
                         ],
                       ],
                     ),

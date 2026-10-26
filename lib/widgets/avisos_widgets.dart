@@ -8,70 +8,79 @@ import 'app_card.dart';
 /// Single notification row: icon tile, title + unread dot, body and time.
 /// Highlighted with [AppColors.unreadSurface] while [notification.unread].
 class NotificationCard extends StatelessWidget {
-  const NotificationCard({super.key, required this.notification});
+  const NotificationCard({super.key, required this.notification, this.onTap});
 
   final AppNotification notification;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: notification.unread ? AppColors.unreadSurface : AppColors.surface,
-      padding: const EdgeInsets.symmetric(
-        horizontal: AppSpacing.md,
-        vertical: 14,
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            width: 40,
-            height: 40,
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: notification.iconBackground,
-              borderRadius: BorderRadius.circular(AppRadius.sm),
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        color: notification.unread
+            ? AppColors.unreadSurface
+            : AppColors.surface,
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppSpacing.md,
+          vertical: 14,
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: notification.iconBackground,
+                borderRadius: BorderRadius.circular(AppRadius.sm),
+              ),
+              child: SvgPicture.asset(
+                notification.iconAsset,
+                width: 20,
+                height: 20,
+              ),
             ),
-            child: SvgPicture.asset(
-              notification.iconAsset,
-              width: 20,
-              height: 20,
-            ),
-          ),
-          const SizedBox(width: AppSpacing.sm),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        notification.title,
-                        style: AppTypography.itemTitle.copyWith(
-                          fontWeight: FontWeight.bold,
+            const SizedBox(width: AppSpacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          notification.title,
+                          style: AppTypography.itemTitle.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                    if (notification.unread) ...[
-                      const SizedBox(width: AppSpacing.xs),
-                      SvgPicture.asset(
-                        'assets/icons/notif_unread_dot.svg',
-                        width: 8,
-                        height: 8,
-                      ),
+                      if (notification.unread) ...[
+                        const SizedBox(width: AppSpacing.xs),
+                        SvgPicture.asset(
+                          'assets/icons/notif_unread_dot.svg',
+                          width: 8,
+                          height: 8,
+                        ),
+                      ],
                     ],
-                  ],
-                ),
-                const SizedBox(height: 3),
-                Text(notification.body, style: AppTypography.cardCaption.copyWith(
-                  color: AppColors.textSecondary,
-                )),
-                const SizedBox(height: 3),
-                Text(notification.time, style: AppTypography.itemSubtitle),
-              ],
+                  ),
+                  const SizedBox(height: 3),
+                  Text(
+                    notification.body,
+                    style: AppTypography.cardCaption.copyWith(
+                      color: AppColors.textSecondary,
+                    ),
+                  ),
+                  const SizedBox(height: 3),
+                  Text(notification.time, style: AppTypography.itemSubtitle),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -81,9 +90,10 @@ class NotificationCard extends StatelessWidget {
 /// separated by thin dividers, clipped so unread rows' fill respects the
 /// card's rounded corners.
 class NotificationListCard extends StatelessWidget {
-  const NotificationListCard({super.key, required this.items});
+  const NotificationListCard({super.key, required this.items, this.onTapItem});
 
   final List<AppNotification> items;
+  final ValueChanged<AppNotification>? onTapItem;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +106,10 @@ class NotificationListCard extends StatelessWidget {
           children: [
             for (final (i, item) in items.indexed) ...[
               if (i > 0) const AppDivider(thin: true),
-              NotificationCard(notification: item),
+              NotificationCard(
+                notification: item,
+                onTap: onTapItem == null ? null : () => onTapItem!(item),
+              ),
             ],
           ],
         ),

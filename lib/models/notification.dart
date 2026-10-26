@@ -2,6 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../theme/theme.dart';
 
+/// What tapping an [AppNotification] card should open. [other] means the
+/// card only gets marked as read, with no further navigation.
+enum AppNotificationType {
+  newOffer,
+  newMessage,
+  jobAssigned,
+  ratingPrompt,
+  documentApproved,
+  documentRejected,
+  other,
+}
+
 /// A single notification card shown on the Avisos screens.
 class AppNotification {
   const AppNotification({
@@ -11,6 +23,7 @@ class AppNotification {
     required this.body,
     required this.time,
     this.unread = false,
+    this.type = AppNotificationType.other,
   });
 
   final String iconAsset;
@@ -19,14 +32,18 @@ class AppNotification {
   final String body;
   final String time;
   final bool unread;
+  final AppNotificationType type;
 
-  AppNotification markRead() => unread ? AppNotification(
-        iconAsset: iconAsset,
-        iconBackground: iconBackground,
-        title: title,
-        body: body,
-        time: time,
-      ) : this;
+  AppNotification markRead() => unread
+      ? AppNotification(
+          iconAsset: iconAsset,
+          iconBackground: iconBackground,
+          title: title,
+          body: body,
+          time: time,
+          type: type,
+        )
+      : this;
 }
 
 /// A day-grouped section of [AppNotification]s (e.g. "HOY", "AYER").
@@ -50,6 +67,7 @@ abstract final class SampleNotifications {
           body: 'Lucía R. te eligió para la mudanza Palermo → Belgrano.',
           time: 'Hace 5 min',
           unread: true,
+          type: AppNotificationType.jobAssigned,
         ),
         AppNotification(
           iconAsset: 'assets/icons/notif_msg.svg',
@@ -58,6 +76,7 @@ abstract final class SampleNotifications {
           body: 'Hola, ¿podés llegar 10 minutos antes?',
           time: 'Hace 20 min',
           unread: true,
+          type: AppNotificationType.newMessage,
         ),
         AppNotification(
           iconAsset: 'assets/icons/notif_shield.svg',
@@ -65,6 +84,7 @@ abstract final class SampleNotifications {
           title: 'Documento aprobado',
           body: 'Tu seguro del vehículo fue aprobado.',
           time: '09:12',
+          type: AppNotificationType.documentApproved,
         ),
       ],
     ),
@@ -77,6 +97,7 @@ abstract final class SampleNotifications {
           title: 'Documento rechazado',
           body: 'La VTV que subiste está vencida. Subí una vigente.',
           time: 'Ayer, 18:40',
+          type: AppNotificationType.documentRejected,
         ),
         AppNotification(
           iconAsset: 'assets/icons/notif_star.svg',
@@ -84,6 +105,7 @@ abstract final class SampleNotifications {
           title: 'Calificá tu último servicio',
           body: 'Contanos cómo fue el flete Caballito → Avellaneda.',
           time: 'Ayer, 14:05',
+          type: AppNotificationType.ratingPrompt,
         ),
       ],
     ),
@@ -97,10 +119,12 @@ abstract final class SampleNotifications {
           iconAsset: 'assets/icons/notif_tag.svg',
           iconBackground: AppColors.iconSurface,
           title: 'Nueva oferta recibida',
-          body: 'Carlos M. ofertó \$48.000 para tu mudanza Palermo → '
+          body:
+              'Carlos M. ofertó \$48.000 para tu mudanza Palermo → '
               'Belgrano.',
           time: 'Hace 5 min',
           unread: true,
+          type: AppNotificationType.newOffer,
         ),
         AppNotification(
           iconAsset: 'assets/icons/notif_msg.svg',
@@ -109,6 +133,7 @@ abstract final class SampleNotifications {
           body: 'Perfecto, nos vemos a las 9.',
           time: 'Hace 20 min',
           unread: true,
+          type: AppNotificationType.newMessage,
         ),
         AppNotification(
           iconAsset: 'assets/icons/notif_check_circle.svg',
@@ -135,6 +160,7 @@ abstract final class SampleNotifications {
           title: 'Calificá a Jorge R.',
           body: 'Contanos cómo fue el flete Caballito → Avellaneda.',
           time: 'Ayer, 14:05',
+          type: AppNotificationType.ratingPrompt,
         ),
       ],
     ),

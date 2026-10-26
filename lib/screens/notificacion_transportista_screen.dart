@@ -104,7 +104,10 @@ class NotificacionTransportistaScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSpacing.md),
-        const _RequesterCard(name: 'Lucía R.', subtitle: 'Solicitante • Palermo'),
+        const _RequesterCard(
+          name: 'Lucía R.',
+          subtitle: 'Solicitante • Palermo',
+        ),
         const SizedBox(height: AppSpacing.sm),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -147,6 +150,7 @@ class _RequesterCard extends StatelessWidget {
 
   void _handleChat(BuildContext context) {
     // TODO: open the chat thread with this requester.
+    Navigator.of(context).pushNamed(AppRoutes.chat);
   }
 
   @override
