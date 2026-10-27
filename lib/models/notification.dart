@@ -8,6 +8,7 @@ enum AppNotificationType {
   newOffer,
   newMessage,
   jobAssigned,
+  serviceFinished,
   ratingPrompt,
   documentApproved,
   documentRejected,
@@ -134,6 +135,15 @@ abstract final class SampleNotifications {
           time: 'Hace 20 min',
           unread: true,
           type: AppNotificationType.newMessage,
+        ),
+        AppNotification(
+          iconAsset: 'assets/icons/notif_check_circle.svg',
+          iconBackground: AppColors.successSurface,
+          title: 'Carlos finalizó el servicio',
+          body: 'Confirmá que todo salió bien para cerrar el servicio.',
+          time: '09:40',
+          unread: true,
+          type: AppNotificationType.serviceFinished,
         ),
         AppNotification(
           iconAsset: 'assets/icons/notif_check_circle.svg',

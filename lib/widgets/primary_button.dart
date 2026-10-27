@@ -18,6 +18,10 @@ enum ButtonVariant {
 
   /// Dark fill with white label.
   dark,
+
+  /// Solid red fill with white label (destructive actions, e.g. "Cancelar
+  /// servicio").
+  danger,
 }
 
 /// Full-width 48px call-to-action button.
@@ -57,6 +61,7 @@ class PrimaryButton extends StatelessWidget {
           const BorderSide(color: AppColors.accent, width: 1.5),
         ),
       ButtonVariant.dark => (AppColors.textPrimary, AppColors.surface, null),
+      ButtonVariant.danger => (AppColors.danger, AppColors.surface, null),
     };
 
     return SizedBox(

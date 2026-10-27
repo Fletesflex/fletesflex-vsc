@@ -50,7 +50,7 @@ class _AvisosTransportistaScreenState extends State<AvisosTransportistaScreen> {
     final String? route;
     switch (notification.type) {
       case AppNotificationType.jobAssigned:
-        route = AppRoutes.notificacionTransportista;
+        route = AppRoutes.servicioAsignado;
       case AppNotificationType.newMessage:
         route = AppRoutes.chat;
       case AppNotificationType.documentApproved:
@@ -59,6 +59,7 @@ class _AvisosTransportistaScreenState extends State<AvisosTransportistaScreen> {
       case AppNotificationType.ratingPrompt:
         route = AppRoutes.avisoCalificacionTransportista;
       case AppNotificationType.newOffer:
+      case AppNotificationType.serviceFinished:
       case AppNotificationType.other:
         route = null;
     }

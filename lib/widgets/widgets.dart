@@ -23,6 +23,7 @@ export 'rating_widgets.dart';
 export 'request_card.dart';
 export 'requester_nav_bar.dart';
 export 'route_summary.dart';
+export 'service_status_widgets.dart';
 export 'status_hero.dart';
 export 'support_widgets.dart';
 export 'upload_drop_zone.dart';

@@ -5,6 +5,7 @@ import 'screens/avisos_solicitante_screen.dart';
 import 'screens/avisos_transportista_screen.dart';
 import 'screens/ayuda_soporte_screen.dart';
 import 'screens/calificacion_screens.dart';
+import 'screens/cancelar_servicio_screens.dart';
 import 'screens/captura_dni_dorso_screen.dart';
 import 'screens/captura_dni_frente_screen.dart';
 import 'screens/carga_pago_screen.dart';
@@ -48,12 +49,14 @@ import 'screens/publicacion_activa_screen.dart';
 import 'screens/resenas_transportista_screen.dart';
 import 'screens/resumen_pago_screen.dart';
 import 'screens/resumen_precio_screen.dart';
+import 'screens/servicio_estado_screens.dart';
 import 'screens/terminos_privacidad_screen.dart';
 import 'screens/transportista_solicitudes_screen.dart';
 import 'screens/verificacion_intro_screen.dart';
 import 'screens/verificacion_procesando_screen.dart';
 import 'screens/verificacion_rechazada_screen.dart';
 import 'screens/verificando_transferencia_screen.dart';
+import 'widgets/profile_menu_widgets.dart' show ProfileMode;
 
 /// Named route paths for the app's screens.
 abstract final class AppRoutes {
@@ -120,6 +123,16 @@ abstract final class AppRoutes {
   static const String perfilCalificaciones = '/transportista/calificaciones';
   static const String historialSolicitante = '/servicios';
   static const String historialTransportista = '/transportista/servicios';
+
+  // Active service lifecycle (post-payment through cancellation).
+  static const String servicioSolicitante = '/servicio';
+  static const String servicioAsignado = '/transportista/servicio/asignado';
+  static const String servicioEnCurso = '/transportista/servicio/en-curso';
+  static const String servicioFinalizado = '/servicio/finalizado';
+  static const String cancelarServicioSolicitante = '/servicio/cancelar';
+  static const String cancelarServicioTransportista =
+      '/transportista/servicio/cancelar';
+  static const String servicioCancelado = '/servicio/cancelado';
 
   // Notifications.
   static const String avisosSolicitante = '/avisos';
@@ -226,6 +239,15 @@ abstract final class AppRoutes {
         const HistorialServiciosScreen(target: RatingTarget.carrier),
     historialTransportista: (_) =>
         const HistorialServiciosScreen(target: RatingTarget.requester),
+    servicioSolicitante: (_) => const ServicioSolicitanteScreen(),
+    servicioAsignado: (_) => const ServicioAsignadoScreen(),
+    servicioEnCurso: (_) => const ServicioEnCursoScreen(),
+    servicioFinalizado: (_) => const ServicioFinalizadoScreen(),
+    cancelarServicioSolicitante: (_) =>
+        const CancelarServicioScreen(role: ProfileMode.solicitante),
+    cancelarServicioTransportista: (_) =>
+        const CancelarServicioScreen(role: ProfileMode.transportista),
+    servicioCancelado: (_) => const ServicioCanceladoScreen(),
     avisosSolicitante: (_) => const AvisosSolicitanteScreen(),
     avisosTransportista: (_) => const AvisosTransportistaScreen(),
     perfilSolicitante: (_) => const PerfilSolicitanteScreen(),

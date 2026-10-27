@@ -54,6 +54,8 @@ class _AvisosSolicitanteScreenState extends State<AvisosSolicitanteScreen> {
         route = AppRoutes.listadoOfertas;
       case AppNotificationType.newMessage:
         route = AppRoutes.chat;
+      case AppNotificationType.serviceFinished:
+        route = AppRoutes.servicioFinalizado;
       case AppNotificationType.ratingPrompt:
         route = AppRoutes.avisoCalificacionSolicitante;
       case AppNotificationType.jobAssigned:

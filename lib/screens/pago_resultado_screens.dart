@@ -21,7 +21,6 @@ class PagoConfirmadoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final offer = ModalRoute.of(context)?.settings.arguments as Offer? ??
         SampleOffers.andres;
-    final name = offer.carrier.name.split(' ').first;
     final paid = byTransfer ? transferPrice(offer.price) : offer.price;
 
     return AppPage(
@@ -35,11 +34,10 @@ class PagoConfirmadoScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           PrimaryButton(
-            label: 'Ir al chat con $name',
+            label: 'Ver mi servicio',
             onPressed: () => Navigator.of(context).pushNamedAndRemoveUntil(
-              AppRoutes.chat,
+              AppRoutes.servicioSolicitante,
               (route) => route.settings.name == AppRoutes.home,
-              arguments: offer,
             ),
           ),
           const SizedBox(height: AppSpacing.md),
