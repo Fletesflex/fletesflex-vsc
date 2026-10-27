@@ -208,6 +208,59 @@ class AppTopBar extends StatelessWidget {
   }
 }
 
+/// Back button above a big headline (+ optional muted subtitle), implemented
+/// from the Figma "title-section"/"nav-header" pattern shared by
+/// "ayuda-soporte", "terminos-privacidad", "resenas-transportista" and
+/// "datos-personales" (file neRKyJz313WM7CEdoZdgGl). Pass as [AppPage.header]
+/// in place of the single-line [AppTopBar].
+class AppPageHeader extends StatelessWidget {
+  const AppPageHeader({
+    super.key,
+    required this.title,
+    this.subtitle,
+    this.onBack,
+  });
+
+  final String title;
+  final String? subtitle;
+
+  /// Defaults to popping the current route.
+  final VoidCallback? onBack;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+        AppSpacing.lg,
+        AppSpacing.sm,
+        AppSpacing.lg,
+        AppSpacing.md,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CircleIconButton(
+            iconAsset: 'assets/icons/arrow_left_sm.svg',
+            onTap: onBack ?? () => Navigator.of(context).maybePop(),
+          ),
+          const SizedBox(height: AppSpacing.xs),
+          Text(title, style: AppTypography.headline.copyWith(fontSize: 28)),
+          if (subtitle != null) ...[
+            const SizedBox(height: 6),
+            Text(
+              subtitle!,
+              style: AppTypography.cardDescription.copyWith(
+                fontSize: 14,
+                color: AppColors.textSecondary,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
 /// 40px white circle with a border holding an 18px icon.
 class CircleIconButton extends StatelessWidget {
   const CircleIconButton({

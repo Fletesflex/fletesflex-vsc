@@ -126,9 +126,9 @@ class PerfilTransportistaScreen extends StatelessWidget {
                       child: TextLinkButton(
                         label: 'Ver todas las reseñas',
                         color: AppColors.textPrimary,
-                        onPressed: () {
-                          // TODO: open the full reviews list.
-                        },
+                        onPressed: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.resenasTransportista),
                       ),
                     ),
                   ],

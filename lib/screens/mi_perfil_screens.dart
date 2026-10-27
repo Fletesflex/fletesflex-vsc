@@ -82,9 +82,9 @@ class PerfilSolicitanteScreen extends StatelessWidget {
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/user_sm.svg',
                         label: 'Datos personales',
-                        onTap: () {
-                          // TODO: open the personal-data editor.
-                        },
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.datosPersonales),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/history.svg',
@@ -110,16 +110,16 @@ class PerfilSolicitanteScreen extends StatelessWidget {
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/circle_question_mark.svg',
                         label: 'Ayuda y soporte',
-                        onTap: () {
-                          // TODO: open help & support.
-                        },
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.ayudaSoporte),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/lock.svg',
                         label: 'Términos y privacidad',
-                        onTap: () {
-                          // TODO: open terms & privacy.
-                        },
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.terminosPrivacidad),
                       ),
                     ],
                   ),
@@ -198,9 +198,9 @@ class MiPerfilTransportistaScreen extends StatelessWidget {
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/user_sm.svg',
                         label: 'Datos personales',
-                        onTap: () {
-                          // TODO: open the personal-data editor.
-                        },
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.datosPersonales),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/truck_sm.svg',
@@ -241,16 +241,16 @@ class MiPerfilTransportistaScreen extends StatelessWidget {
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/circle_question_mark.svg',
                         label: 'Ayuda y soporte',
-                        onTap: () {
-                          // TODO: open help & support.
-                        },
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.ayudaSoporte),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/lock.svg',
                         label: 'Términos y privacidad',
-                        onTap: () {
-                          // TODO: open terms & privacy.
-                        },
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.terminosPrivacidad),
                       ),
                     ],
                   ),

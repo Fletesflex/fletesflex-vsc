@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'models/rating.dart';
 import 'screens/avisos_solicitante_screen.dart';
 import 'screens/avisos_transportista_screen.dart';
+import 'screens/ayuda_soporte_screen.dart';
 import 'screens/calificacion_screens.dart';
 import 'screens/captura_dni_dorso_screen.dart';
 import 'screens/captura_dni_frente_screen.dart';
@@ -13,6 +14,7 @@ import 'screens/codigo_verificacion_screen.dart';
 import 'screens/comprobante_pago_screen.dart';
 import 'screens/confirmacion_transportista_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
+import 'screens/datos_personales_screen.dart';
 import 'screens/datos_vehiculo_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
 import 'screens/documento_en_revision_screen.dart';
@@ -43,8 +45,10 @@ import 'screens/pago_transferencia_screen.dart';
 import 'screens/perfil_transportista_screen.dart';
 import 'screens/prueba_de_vida_selfie_screen.dart';
 import 'screens/publicacion_activa_screen.dart';
+import 'screens/resenas_transportista_screen.dart';
 import 'screens/resumen_pago_screen.dart';
 import 'screens/resumen_precio_screen.dart';
+import 'screens/terminos_privacidad_screen.dart';
 import 'screens/transportista_solicitudes_screen.dart';
 import 'screens/verificacion_intro_screen.dart';
 import 'screens/verificacion_procesando_screen.dart';
@@ -123,6 +127,12 @@ abstract final class AppRoutes {
 
   // Requester: own profile ("Mi perfil").
   static const String perfilSolicitante = '/perfil';
+
+  // Shared profile sub-screens (requester & carrier).
+  static const String datosPersonales = '/perfil/datos-personales';
+  static const String ayudaSoporte = '/perfil/ayuda-soporte';
+  static const String terminosPrivacidad = '/perfil/terminos-privacidad';
+  static const String resenasTransportista = '/transportista/resenas';
 
   // Carrier.
   static const String transportistaSolicitudes = '/transportista';
@@ -219,6 +229,10 @@ abstract final class AppRoutes {
     avisosSolicitante: (_) => const AvisosSolicitanteScreen(),
     avisosTransportista: (_) => const AvisosTransportistaScreen(),
     perfilSolicitante: (_) => const PerfilSolicitanteScreen(),
+    datosPersonales: (_) => const DatosPersonalesScreen(),
+    ayudaSoporte: (_) => const AyudaSoporteScreen(),
+    terminosPrivacidad: (_) => const TerminosPrivacidadScreen(),
+    resenasTransportista: (_) => const ResenasTransportistaScreen(),
     transportistaSolicitudes: (_) => const TransportistaSolicitudesScreen(),
     detalleSolicitud: (_) => const DetalleSolicitudScreen(),
     confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),
