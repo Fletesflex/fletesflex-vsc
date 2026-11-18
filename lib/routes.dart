@@ -54,6 +54,7 @@ import 'screens/pago_transferencia_screen.dart';
 import 'screens/perfil_transportista_screen.dart';
 import 'screens/prueba_de_vida_selfie_screen.dart';
 import 'screens/publicacion_activa_screen.dart';
+import 'screens/reclamo_screens.dart';
 import 'screens/resenas_transportista_screen.dart';
 import 'screens/resumen_pago_screen.dart';
 import 'screens/resumen_precio_screen.dart';
@@ -120,6 +121,12 @@ abstract final class AppRoutes {
   static const String chatArchivado = '/chat/archivado';
   static const String reporteProblema = '/chat/reporte';
 
+  // Reports & claims.
+  static const String reclamoEnviado = '/chat/reclamo/enviado';
+  static const String tuReclamo = '/chat/reclamo';
+  static const String reclamoAgregarInfo = '/chat/reclamo/agregar-informacion';
+  static const String reclamoResueltoSolicitante = '/reclamo/resuelto';
+
   // Ratings.
   static const String avisoCalificacionSolicitante = '/calificar/aviso';
   static const String avisoCalificacionTransportista =
@@ -179,6 +186,9 @@ abstract final class AppRoutes {
   static const String misOfertas = '/transportista/ofertas';
   static const String notificacionTransportista =
       '/transportista/notificacion';
+  static const String reporteTransportista = '/transportista/reporte';
+  static const String reclamoResueltoTransportista =
+      '/transportista/reclamo/resuelto';
 
   /// Carrier's own profile ("Mi perfil").
   static const String miPerfilTransportista = '/transportista/perfil';
@@ -251,6 +261,11 @@ abstract final class AppRoutes {
     chat: (_) => const ChatScreen(),
     chatArchivado: (_) => const ChatScreen(archived: true),
     reporteProblema: (_) => const ChatScreen(openReportOnStart: true),
+    reclamoEnviado: (_) => const ReporteEnviadoScreen(),
+    tuReclamo: (_) => const TuReclamoScreen(),
+    reclamoAgregarInfo: (_) => const AgregarInformacionScreen(),
+    reclamoResueltoSolicitante: (_) =>
+        const ReclamoResueltoSolicitanteScreen(),
     avisoCalificacionSolicitante: (_) => const RatingPromptHost(
       target: RatingTarget.carrier,
       child: HomeScreen(),
@@ -301,6 +316,9 @@ abstract final class AppRoutes {
     confirmacionOfertaEnviada: (_) => const OfertaEnviadaScreen(),
     misOfertas: (_) => const MisOfertasScreen(),
     notificacionTransportista: (_) => const NotificacionTransportistaScreen(),
+    reporteTransportista: (_) => const ReporteTransportistaScreen(),
+    reclamoResueltoTransportista: (_) =>
+        const ReclamoResueltoTransportistaScreen(),
     miPerfilTransportista: (_) => const MiPerfilTransportistaScreen(),
     verificacionIntro: (_) => const VerificacionIntroScreen(),
     capturaDniFrente: (_) => const CapturaDniFrenteScreen(),

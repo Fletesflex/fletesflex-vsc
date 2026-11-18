@@ -12,6 +12,15 @@ enum AppNotificationType {
   ratingPrompt,
   documentApproved,
   documentRejected,
+
+  /// A requester filed a report against one of the carrier's services.
+  serviceReported,
+
+  /// A claim the requester filed was resolved.
+  claimResolved,
+
+  /// A report filed against the carrier was resolved.
+  reportResolved,
   other,
 }
 
@@ -80,6 +89,16 @@ abstract final class SampleNotifications {
           type: AppNotificationType.newMessage,
         ),
         AppNotification(
+          iconAsset: 'assets/icons/notif_alert.svg',
+          iconBackground: AppColors.iconSurface,
+          title: 'Reporte sobre tu servicio',
+          body: 'Lucía R. reportó un problema con la mudanza Palermo → '
+              'Belgrano.',
+          time: 'Hace 1 h',
+          unread: true,
+          type: AppNotificationType.serviceReported,
+        ),
+        AppNotification(
           iconAsset: 'assets/icons/notif_shield.svg',
           iconBackground: AppColors.successSurface,
           title: 'Documento aprobado',
@@ -107,6 +126,14 @@ abstract final class SampleNotifications {
           body: 'Contanos cómo fue el flete Caballito → Avellaneda.',
           time: 'Ayer, 14:05',
           type: AppNotificationType.ratingPrompt,
+        ),
+        AppNotification(
+          iconAsset: 'assets/icons/notif_shield.svg',
+          iconBackground: AppColors.iconSurface,
+          title: 'Resolvimos el reporte',
+          body: 'Ya revisamos el caso #FF-2048. Mirá la resolución.',
+          time: 'Ayer, 16:20',
+          type: AppNotificationType.reportResolved,
         ),
       ],
     ),
@@ -171,6 +198,14 @@ abstract final class SampleNotifications {
           body: 'Contanos cómo fue el flete Caballito → Avellaneda.',
           time: 'Ayer, 14:05',
           type: AppNotificationType.ratingPrompt,
+        ),
+        AppNotification(
+          iconAsset: 'assets/icons/notif_shield.svg',
+          iconBackground: AppColors.successSurface,
+          title: 'Resolvimos tu reclamo',
+          body: 'Ya revisamos el caso #FF-2048. Mirá la resolución.',
+          time: 'Ayer, 16:20',
+          type: AppNotificationType.claimResolved,
         ),
       ],
     ),

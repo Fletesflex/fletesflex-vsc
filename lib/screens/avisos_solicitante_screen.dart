@@ -58,9 +58,13 @@ class _AvisosSolicitanteScreenState extends State<AvisosSolicitanteScreen> {
         route = AppRoutes.servicioFinalizado;
       case AppNotificationType.ratingPrompt:
         route = AppRoutes.avisoCalificacionSolicitante;
+      case AppNotificationType.claimResolved:
+        route = AppRoutes.reclamoResueltoSolicitante;
       case AppNotificationType.jobAssigned:
       case AppNotificationType.documentApproved:
       case AppNotificationType.documentRejected:
+      case AppNotificationType.serviceReported:
+      case AppNotificationType.reportResolved:
       case AppNotificationType.other:
         route = null;
     }

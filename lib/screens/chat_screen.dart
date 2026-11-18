@@ -214,9 +214,7 @@ class _ChatScreenState extends State<ChatScreen> {
       builder: (_) => const ReportProblemSheet(),
     );
     if (sent == true && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Recibimos tu reporte. Te contactamos pronto.')),
-      );
+      Navigator.of(context).pushNamed(AppRoutes.reclamoEnviado);
     }
   }
 

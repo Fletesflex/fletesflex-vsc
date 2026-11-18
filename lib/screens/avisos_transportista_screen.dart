@@ -58,8 +58,13 @@ class _AvisosTransportistaScreenState extends State<AvisosTransportistaScreen> {
         route = AppRoutes.estadoDocumentacion;
       case AppNotificationType.ratingPrompt:
         route = AppRoutes.avisoCalificacionTransportista;
+      case AppNotificationType.serviceReported:
+        route = AppRoutes.reporteTransportista;
+      case AppNotificationType.reportResolved:
+        route = AppRoutes.reclamoResueltoTransportista;
       case AppNotificationType.newOffer:
       case AppNotificationType.serviceFinished:
+      case AppNotificationType.claimResolved:
       case AppNotificationType.other:
         route = null;
     }
