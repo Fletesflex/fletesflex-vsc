@@ -940,11 +940,11 @@ class _HistorialServiciosScreenState extends State<HistorialServiciosScreen> {
                       const SizedBox(height: AppSpacing.md),
                       _CompletedCard(
                         item: item,
-                        onTap: _isRequester
-                            ? () => Navigator.of(
-                                context,
-                              ).pushNamed(AppRoutes.detalleServicio)
-                            : null,
+                        onTap: () => Navigator.of(context).pushNamed(
+                          _isRequester
+                              ? AppRoutes.detalleServicio
+                              : AppRoutes.detalleServicioTransportista,
+                        ),
                       ),
                     ],
                   ] else

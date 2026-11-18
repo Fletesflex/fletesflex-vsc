@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'FletesFlex',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.splash,
       routes: AppRoutes.table,
       builder: (context, child) {
         if (child == null) return const SizedBox.shrink();

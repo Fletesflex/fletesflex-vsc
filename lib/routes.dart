@@ -4,6 +4,7 @@ import 'models/rating.dart';
 import 'screens/avisos_solicitante_screen.dart';
 import 'screens/avisos_transportista_screen.dart';
 import 'screens/ayuda_soporte_screen.dart';
+import 'screens/bienvenida_screen.dart';
 import 'screens/calificacion_screens.dart';
 import 'screens/cancelar_servicio_screens.dart';
 import 'screens/captura_dni_dorso_screen.dart';
@@ -20,6 +21,7 @@ import 'screens/datos_cobro_screen.dart';
 import 'screens/datos_personales_screen.dart';
 import 'screens/datos_vehiculo_screen.dart';
 import 'screens/detalle_servicio_screen.dart';
+import 'screens/detalle_servicio_transportista_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
 import 'screens/documento_en_revision_screen.dart';
 import 'screens/documento_rechazado_screen.dart';
@@ -56,6 +58,7 @@ import 'screens/resenas_transportista_screen.dart';
 import 'screens/resumen_pago_screen.dart';
 import 'screens/resumen_precio_screen.dart';
 import 'screens/servicio_estado_screens.dart';
+import 'screens/splash_screen.dart';
 import 'screens/terminos_privacidad_screen.dart';
 import 'screens/transportista_solicitudes_screen.dart';
 import 'screens/verificacion_intro_screen.dart';
@@ -69,7 +72,10 @@ abstract final class AppRoutes {
   static const String login = '/';
   static const String home = '/home';
 
-  // Onboarding: phone verification + role selection.
+  // Onboarding: splash + welcome carousel, phone verification + role
+  // selection.
+  static const String splash = '/splash';
+  static const String bienvenida = '/bienvenida';
   static const String codigoVerificacion = '/codigo-verificacion';
   static const String elegirRol = '/elegir-rol';
 
@@ -130,6 +136,8 @@ abstract final class AppRoutes {
   static const String historialSolicitante = '/servicios';
   static const String historialTransportista = '/transportista/servicios';
   static const String detalleServicio = '/servicios/detalle';
+  static const String detalleServicioTransportista =
+      '/transportista/servicios/detalle';
 
   // Active service lifecycle (post-payment through cancellation).
   static const String servicioSolicitante = '/servicio';
@@ -211,6 +219,8 @@ abstract final class AppRoutes {
   static Map<String, WidgetBuilder> get table => {
     login: (_) => const LoginScreen(),
     home: (_) => const HomeScreen(),
+    splash: (_) => const SplashScreen(),
+    bienvenida: (_) => const BienvenidaScreen(),
     codigoVerificacion: (_) => const CodigoVerificacionScreen(),
     elegirRol: (_) => const ElegirRolScreen(),
     fletePaso1: (_) => const FletePaso1Screen(),
@@ -261,6 +271,8 @@ abstract final class AppRoutes {
     historialTransportista: (_) =>
         const HistorialServiciosScreen(target: RatingTarget.requester),
     detalleServicio: (_) => const DetalleServicioScreen(),
+    detalleServicioTransportista: (_) =>
+        const DetalleServicioTransportistaScreen(),
     servicioSolicitante: (_) => const ServicioSolicitanteScreen(),
     servicioAsignado: (_) => const ServicioAsignadoScreen(),
     servicioEnCurso: (_) => const ServicioEnCursoScreen(),
