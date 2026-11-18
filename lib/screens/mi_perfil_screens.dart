@@ -87,11 +87,11 @@ class PerfilSolicitanteScreen extends StatelessWidget {
                         ).pushNamed(AppRoutes.datosPersonales),
                       ),
                       ProfileMenuRow(
-                        iconAsset: 'assets/icons/history.svg',
-                        label: 'Mis servicios',
-                        onTap: () =>
-                            Navigator.of(context)
-                                .pushNamed(AppRoutes.historialSolicitante),
+                        iconAsset: 'assets/icons/nav_bell.svg',
+                        label: 'Notificaciones',
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.notificaciones),
                       ),
                       ProfileMenuRow(
                         iconAsset: 'assets/icons/star_section.svg',
@@ -218,6 +218,12 @@ class MiPerfilTransportistaScreen extends StatelessWidget {
                                 .pushNamed(AppRoutes.estadoDocumentacion),
                       ),
                       ProfileMenuRow(
+                        iconAsset: 'assets/icons/wallet.svg',
+                        label: 'Mis cobros',
+                        onTap: () =>
+                            Navigator.of(context).pushNamed(AppRoutes.misCobros),
+                      ),
+                      ProfileMenuRow(
                         iconAsset: 'assets/icons/star_section.svg',
                         label: 'Mis calificaciones',
                         onTap: () =>
@@ -230,6 +236,13 @@ class MiPerfilTransportistaScreen extends StatelessWidget {
                         onTap: () =>
                             Navigator.of(context)
                                 .pushNamed(AppRoutes.historialTransportista),
+                      ),
+                      ProfileMenuRow(
+                        iconAsset: 'assets/icons/nav_bell.svg',
+                        label: 'Notificaciones',
+                        onTap: () => Navigator.of(
+                          context,
+                        ).pushNamed(AppRoutes.notificaciones),
                       ),
                     ],
                   ),

@@ -938,7 +938,14 @@ class _HistorialServiciosScreenState extends State<HistorialServiciosScreen> {
                     ),
                     for (final item in _completed) ...[
                       const SizedBox(height: AppSpacing.md),
-                      _CompletedCard(item: item),
+                      _CompletedCard(
+                        item: item,
+                        onTap: _isRequester
+                            ? () => Navigator.of(
+                                context,
+                              ).pushNamed(AppRoutes.detalleServicio)
+                            : null,
+                      ),
                     ],
                   ] else
                     Padding(
@@ -1065,9 +1072,10 @@ class _PendingRatingCard extends StatelessWidget {
 }
 
 class _CompletedCard extends StatelessWidget {
-  const _CompletedCard({required this.item});
+  const _CompletedCard({required this.item, this.onTap});
 
   final _HistoryItem item;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -1076,6 +1084,7 @@ class _CompletedCard extends StatelessWidget {
       radius: AppRadius.xl,
       borderWidth: 1,
       shadow: false,
+      onTap: onTap,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [

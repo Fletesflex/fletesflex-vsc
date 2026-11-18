@@ -87,8 +87,8 @@ class EstadoDocumentacionScreen extends StatelessWidget {
           title: 'Cédula verde o azul',
           subtitle: 'Titularidad del vehículo',
           status: DocumentStatus.pending,
-          // TODO: open the cédula upload screen once it's built.
-          onTap: () {},
+          onTap: () =>
+              Navigator.of(context).pushNamed(AppRoutes.cargaCedulaVehiculo),
         ),
         const SizedBox(height: AppSpacing.lg),
         Container(

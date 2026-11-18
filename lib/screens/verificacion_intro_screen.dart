@@ -31,7 +31,7 @@ class VerificacionIntroScreen extends StatelessWidget {
         // TODO: skip straight to the next pending step once some
         // requirements are already completed.
         onPressed: () =>
-            Navigator.of(context).pushNamed(AppRoutes.capturaDniFrente),
+            Navigator.of(context).pushNamed(AppRoutes.permisoCamara),
       ),
       children: const [
         _Illustration(),

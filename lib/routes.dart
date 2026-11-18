@@ -8,6 +8,7 @@ import 'screens/calificacion_screens.dart';
 import 'screens/cancelar_servicio_screens.dart';
 import 'screens/captura_dni_dorso_screen.dart';
 import 'screens/captura_dni_frente_screen.dart';
+import 'screens/carga_cedula_vehiculo_screen.dart';
 import 'screens/carga_pago_screen.dart';
 import 'screens/carga_seguro_vehiculo_screen.dart';
 import 'screens/chat_screen.dart';
@@ -15,13 +16,16 @@ import 'screens/codigo_verificacion_screen.dart';
 import 'screens/comprobante_pago_screen.dart';
 import 'screens/confirmacion_transportista_screen.dart';
 import 'screens/confirmar_solicitud_screen.dart';
+import 'screens/datos_cobro_screen.dart';
 import 'screens/datos_personales_screen.dart';
 import 'screens/datos_vehiculo_screen.dart';
+import 'screens/detalle_servicio_screen.dart';
 import 'screens/detalle_solicitud_screen.dart';
 import 'screens/documento_en_revision_screen.dart';
 import 'screens/documento_rechazado_screen.dart';
 import 'screens/elegir_rol_screen.dart';
 import 'screens/estado_documentacion_screen.dart';
+import 'screens/estado_screens.dart';
 import 'screens/exito_confirmacion_screen.dart';
 import 'screens/flete_confirmacion_screen.dart';
 import 'screens/flete_paso1_screen.dart';
@@ -38,8 +42,10 @@ import 'screens/mensajeria_paso1_screen.dart';
 import 'screens/mensajeria_paso2_screen.dart';
 import 'screens/mensajeria_publicada_screen.dart';
 import 'screens/mi_perfil_screens.dart';
+import 'screens/mis_cobros_screen.dart';
 import 'screens/mis_ofertas_screen.dart';
 import 'screens/notificacion_transportista_screen.dart';
+import 'screens/notificaciones_screen.dart';
 import 'screens/oferta_enviada_screen.dart';
 import 'screens/pago_resultado_screens.dart';
 import 'screens/pago_transferencia_screen.dart';
@@ -123,6 +129,7 @@ abstract final class AppRoutes {
   static const String perfilCalificaciones = '/transportista/calificaciones';
   static const String historialSolicitante = '/servicios';
   static const String historialTransportista = '/transportista/servicios';
+  static const String detalleServicio = '/servicios/detalle';
 
   // Active service lifecycle (post-payment through cancellation).
   static const String servicioSolicitante = '/servicio';
@@ -143,9 +150,17 @@ abstract final class AppRoutes {
 
   // Shared profile sub-screens (requester & carrier).
   static const String datosPersonales = '/perfil/datos-personales';
+  static const String notificaciones = '/perfil/notificaciones';
   static const String ayudaSoporte = '/perfil/ayuda-soporte';
   static const String terminosPrivacidad = '/perfil/terminos-privacidad';
   static const String resenasTransportista = '/transportista/resenas';
+
+  // Shared generic status / permission screens.
+  static const String sinConexion = '/estado/sin-conexion';
+  static const String algoSalioMal = '/estado/error';
+  static const String cuentaSuspendida = '/estado/suspendida';
+  static const String permisoCamara = '/estado/permiso-camara';
+  static const String permisoUbicacion = '/estado/permiso-ubicacion';
 
   // Carrier.
   static const String transportistaSolicitudes = '/transportista';
@@ -185,6 +200,12 @@ abstract final class AppRoutes {
       '/transportista/verificacion/documentos/en-revision';
   static const String documentoRechazado =
       '/transportista/verificacion/documentos/rechazado';
+  static const String cargaCedulaVehiculo =
+      '/transportista/verificacion/documentos/cedula';
+
+  // Carrier: earnings.
+  static const String misCobros = '/transportista/cobros';
+  static const String datosCobro = '/transportista/cobros/datos';
 
   /// Route table for [MaterialApp.routes].
   static Map<String, WidgetBuilder> get table => {
@@ -239,6 +260,7 @@ abstract final class AppRoutes {
         const HistorialServiciosScreen(target: RatingTarget.carrier),
     historialTransportista: (_) =>
         const HistorialServiciosScreen(target: RatingTarget.requester),
+    detalleServicio: (_) => const DetalleServicioScreen(),
     servicioSolicitante: (_) => const ServicioSolicitanteScreen(),
     servicioAsignado: (_) => const ServicioAsignadoScreen(),
     servicioEnCurso: (_) => const ServicioEnCursoScreen(),
@@ -252,9 +274,15 @@ abstract final class AppRoutes {
     avisosTransportista: (_) => const AvisosTransportistaScreen(),
     perfilSolicitante: (_) => const PerfilSolicitanteScreen(),
     datosPersonales: (_) => const DatosPersonalesScreen(),
+    notificaciones: (_) => const NotificacionesScreen(),
     ayudaSoporte: (_) => const AyudaSoporteScreen(),
     terminosPrivacidad: (_) => const TerminosPrivacidadScreen(),
     resenasTransportista: (_) => const ResenasTransportistaScreen(),
+    sinConexion: (_) => const SinConexionScreen(),
+    algoSalioMal: (_) => const AlgoSalioMalScreen(),
+    cuentaSuspendida: (_) => const CuentaSuspendidaScreen(),
+    permisoCamara: (_) => const PermisoCamaraScreen(),
+    permisoUbicacion: (_) => const PermisoUbicacionScreen(),
     transportistaSolicitudes: (_) => const TransportistaSolicitudesScreen(),
     detalleSolicitud: (_) => const DetalleSolicitudScreen(),
     confirmarSolicitud: (_) => const ConfirmarSolicitudScreen(),
@@ -274,5 +302,8 @@ abstract final class AppRoutes {
     cargaSeguroVehiculo: (_) => const CargaSeguroVehiculoScreen(),
     documentoEnRevision: (_) => const DocumentoEnRevisionScreen(),
     documentoRechazado: (_) => const DocumentoRechazadoScreen(),
+    cargaCedulaVehiculo: (_) => const CargaCedulaVehiculoScreen(),
+    misCobros: (_) => const MisCobrosScreen(),
+    datosCobro: (_) => const DatosCobroScreen(),
   };
 }
